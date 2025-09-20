@@ -132,7 +132,7 @@
   color: #111827;
   word-break: break-word;
   flex: 1;
-  margin-left: 27px;
+  margin-left: 9px;
   margin-top: 1.8px;
 }
 .upvote {
@@ -175,6 +175,35 @@
   border: none;
   cursor: pointer;
 }
-.comment-bar.regular {
+.comment-bar.outlined {
+  border: 1.8px solid black;
+}
+.comment-box {
+  position: relative;
+  width: 480px;
+  min-height: 50px;
+}
+.comment-box textarea {
+  width: 100%;
+  min-height: 50px;
+  background-color: #F5FEFF;
+  box-sizing: border-box;
+  font-size: 10px;
+  padding-top: 9px;
+  padding-left: 18px;
+  resize: none;
+  font-family: 'Lekton', sans-serif;
+}
+.comment-box textarea::placeholder {
+  padding-top: 18px;
+}
+.comment-box .post-comment {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: transparent;
   border: none;
+  margin-top: 1px;
 }
