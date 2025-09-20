@@ -116,3 +116,44 @@
     border: 2px solid black;
     box-shadow: none;
 }
+.comment {
+  width: 411px;
+  min-height: 36px;
+  display: flex;
+  align-items: flex-start;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  gap: 9px;
+  background: #F5FEFF;
+}
+.comment-content {
+  font-family: 'Lekton', sans-serif;
+  font-size: 10px;
+  color: #111827;
+  word-break: break-word;
+  flex: 1;
+  margin-left: 27px;
+  margin-top: 1.8px;
+}
+.upvote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.upvote img {
+  width: 18px;
+  height: 18px;
+  margin-left: 18px;
+  margin-top: 18px;
+}
+.upvote-count {
+  font-family: 'Lekton', sans-serif;
+  font-size: 10px;
+  color: #111827;
+  margin-left: 16.2px;
+}
