@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CommentsModal } from '../components/CommentsModal';
+import { useState } from 'react';
 
 const meta: Meta<typeof CommentsModal> = {
     title: 'components/CommentsModal',
@@ -21,6 +22,18 @@ export default meta;
 type Story = StoryObj<typeof CommentsModal>;
 
 export const Regular: Story = {
+    render: (args) => {
+        const [commentText, setCommentText] = useState("");
+        return (<>
+            <CommentsModal {...args}
+                commentBox={{
+                    content: commentText,
+                    onChange: setCommentText,
+                    send: args.commentBox.send
+                }}
+            />
+        </>);
+    },
     args: {
         variant: "regular",
         comments: [
