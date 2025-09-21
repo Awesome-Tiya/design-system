@@ -268,3 +268,40 @@
   bottom: 0;
   position: sticky;
 }
+.feedback-modal {
+  width: 72%;
+  height: 72%;
+  background-color: #fadea2;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  gap: 9px;
+  position: relative;
+}
+.feedback-modal label {
+  font-family: 'Lekton', sans-serif;
+  font-size: 14px;
+  margin-top: 0;
+}
+.feedback-modal input, textarea {
+  width: 100%;
+  background-color: #faf2db;
+  box-sizing: border-box;
+  border: none;
+  font-size: 14px;
+  margin: 0 auto;
+  display: block;
+  padding: 9px;
+  resize: none;
+  font-family: 'Lekton', sans-serif;
+}
+.feedback-modal textarea {
+  min-height: 131px;
+}
+.feedback-modal .feedback-button {
+  align-self: flex-end;
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
