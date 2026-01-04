@@ -122,19 +122,96 @@
   display: flex;
   align-items: flex-start;
   padding: 2px 4px;
+  position: relative;
   box-sizing: border-box;
   gap: 9px;
   background: #F5FEFF;
 }
 .comment-content {
   font-family: 'Lekton', sans-serif;
-  font-size: 10px;
+  font-size: 12.6px;
   color: #111827;
   word-break: break-word;
   flex: 1;
   margin-left: 9px;
   margin-top: 1.8px;
 }
+.flag-button {
+  background: transparent;
+  position: absolute;
+  border: none;
+  bottom: 6.3px;
+  right: 6.3px;
+  cursor: pointer;
+}
+.flag-button img {
+  width: 12.6px;
+  height: 12.6px;
+}
+.flag-modal {
+  width: 279px;
+  flex-direction: column;
+  max-width: 90%;
+  background-color: #eb9f9f;
+  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.27);
+  display: flex;
+  position: relative;
+  padding: 6px 9px;
+}
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.flag-modal-title {
+  font-family: 'Lekton', sans-serif;
+  font-size: 14.4px;
+  margin-bottom: 0;
+  text-align: center;
+}
+.flag-modal-divider {
+  height: 1px;
+  background-color: black;
+  margin: 6px 0 6px;
+}
+.flag-modal ul {
+  list-style-type: none;
+  padding: 9px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.submit-flag {
+  font-family: 'Lekton', sans-serif;
+  width: 36%;
+  align-self: center;
+  font-size: 12.6px;
+  border: none;
+  background-color: #c13d3d;
+  padding: 6px 9px;
+  cursor: pointer;
+}
+.flag-modal li button.selected {
+  border: 2px solid #c13d3d;
+}
+.flag-modal li button {
+  font-family: 'Lekton', sans-serif;
+  width: 100%;
+  align-self: center;
+  font-size: 12.6px;
+  margin-bottom: 6.3px;
+  padding: 6px 9px;
+  border: none;
+  background-color: #e47a7a;
+  cursor: pointer;
+}
+
 .upvote {
   display: flex;
   flex-direction: column;
@@ -296,19 +373,13 @@
   text-align: center;
   margin: 0;
 }
-.upvote-count {
-  font-family: 'Lekton', sans-serif;
-  margin-left: 1.8px;
-  margin-top: 9px;
-  font-size: 10px;
-  color: #111827;
-}
 .feedback-modal {
   width: 72%;
   height: 72%;
   background-color: #fadea2;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.27);
   padding: 18px;
   gap: 9px;
   position: relative;

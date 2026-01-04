@@ -29,7 +29,7 @@ export const FeedBackModal: React.FC<FeedBackProps> = ({ onClick, onClose, email
                 <input id="email" title="email" type="email" value={email} onChange={(e) => onEmailChange(e.target.value)} placeholder="" />
                 <label htmlFor="suggestion">suggestion</label>
                 <textarea id="suggestion" title="suggestion" value={suggestion} onChange={(e) => onFeedBackChange(e.target.value)} placeholder="" />
-                <button type="button" className="feedback-button" onClick={onClick}>{ send }</button>
+                <button type="button" className="feedback-button" aria-label="feedback" onClick={onClick}>{ send }</button>
             </div>
         </div>
     </>);

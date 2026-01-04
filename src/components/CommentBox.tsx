@@ -12,7 +12,7 @@ export const CommentBox: React.FC<CommentBoxProps> = ({ content, onChange, onCli
     return (<>
         <div className="comment-box">
             <textarea placeholder="type here to comment ........." value={content} onChange={(e) => onChange(e.target.value)} className="comment-text" />
-            <button type="button" className="post-comment" onClick={onClick}>
+            <button type="button" className="post-comment" aria-label="comment" onClick={onClick}>
                 { send }
             </button>
         </div>

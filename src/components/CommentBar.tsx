@@ -18,7 +18,7 @@ export const CommentBar: React.FC<CommentBarProps> = ({ onClick, comment, varian
         <article className={`comment-bar ${variant}`}>
             <Comment id={comment.id}
                 content={comment.content} initialUpvotes={comment.initialUpvotes} />
-            <button type="button" className="button" onClick={onClick}>{ button }</button>
+            <button type="button" className="button" aria-label="comment bar button" onClick={onClick}>{ button }</button>
         </article>
     </>);
 }

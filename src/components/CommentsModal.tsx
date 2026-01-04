@@ -29,7 +29,7 @@ export const CommentsModal: React.FC<CommentsModalProps> = ({ onClick, comments,
     return (<>
         <div className={`comments-modal ${variant}`}>
             <div className="line">
-                <button type="button" className="back-button" onClick={onClick}>{ backButton }</button>
+                <button type="button" className="back-button" aria-label="back button" onClick={onClick}>{ backButton }</button>
                 <h3 className="comments">Comments {numberOfComments}</h3>
             </div>
             <div className="comment-list">
