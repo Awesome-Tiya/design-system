@@ -8,31 +8,24 @@ type CommentProps = {
     onUpvote?: (id: number) => void;
     onFlag?: (id: number) => void;
     flagged?: boolean;
-    initialUpvotes: number;
+    upvotes: number;
 }
 
-export const Comment: React.FC<CommentProps> = ({ id, content, onUpvote, onFlag, flagged=false, initialUpvotes }) => {
-    const [upvotes, setUpvotes] = useState(initialUpvotes);
-    const handleUpvote = () => {
-        setUpvotes(prev => prev + 1);
-        if (onUpvote) onUpvote(id);
-    }
-    const handleFlag = () => {
-        onFlag?.(id);
-    }
+export const Comment: React.FC<CommentProps> = ({ id, content, onUpvote, onFlag, flagged=false, upvotes }) => {
     const formattedUpvotes = new Intl.NumberFormat('en', {
         notation: "compact",
         compactDisplay: "short",
         maximumFractionDigits: 2
     }).format(upvotes);
+    
     return (<>
         <article className='comment'>
-            <button type="button" className="upvote" onClick={handleUpvote}>
+            <button type="button" className="upvote" onClick={() => onUpvote?.(id)}>
                 <img src={upvoteFlower} alt="flower"/>
                 <span className="upvote-count">{ formattedUpvotes }</span>
             </button>
             <p className="comment-content">{ content }</p>
-            <button type="button" className="flag-button" aria-label="flag comment" onClick={handleFlag}><img src={flag} alt="flag"/></button>
+            <button type="button" className="flag-button" aria-label="flag comment" onClick={() => onFlag?.(id)}><img src={flag} alt="flag"/></button>
         </article>
     </>);
 }

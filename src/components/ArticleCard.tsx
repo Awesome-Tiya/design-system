@@ -7,10 +7,14 @@ type ArticleCardProps = {
     title: string;
     background: string;
     id: number;
+    prev: boolean,
+    next: boolean,
+    onPrev?: () => void,
+    onNext?: () => void,
     onUpvote?: (id: number) => void;
     initialUpvotes: number;
 }
-export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, variant='regular', onUpvote, id, initialUpvotes, background }) => {
+export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, variant='regular', next, prev, onPrev, onNext, onUpvote, id, initialUpvotes, background }) => {
     const style = {
         '--color-background-article-card': background,
     } as React.CSSProperties;
@@ -29,9 +33,11 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, varia
             <div className="upvote-line">
                 <button type="button" className="upvotes" onClick={handleUpvote}>
                     <img src={upvote} alt="flower"/>
-                <span className="upvote-count">{ formattedUpvotes }</span>
-            </button>
+                    <span className="upvote-count">{ formattedUpvotes }</span>
+                </button>
                 <h3 className="title">{ title }</h3>
+                {prev && <button type="button" className="prev" aria-label="previous" onClick={onPrev}>◀ prev</button>}
+                {next && <button type="button" className="next" aria-label="next" onClick={onNext}>next ▶</button>}
             </div>
             <div className="article">{ children }</div>
         </article>

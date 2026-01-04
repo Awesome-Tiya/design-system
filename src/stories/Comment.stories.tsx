@@ -7,7 +7,9 @@ const meta: Meta<typeof Comment> = {
     argTypes: {
         id: { control: "text" },
         content: { control: "text" },
-        initialUpvotes: { control: "number" },
+        upvotes: { control: "number" },
+        onFlag: { action: "clicked" },
+        flagged: { control: "boolean" },
         onUpvote: { action: "clicked" }
     },
 };
@@ -19,6 +21,6 @@ export const Primary: Story = {
     args: {
         id: 1,
         content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-        initialUpvotes: 18000
+        upvotes: 18000
     },
 };

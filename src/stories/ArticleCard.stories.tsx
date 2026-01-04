@@ -10,7 +10,12 @@ const meta: Meta<typeof ArticleCard> = {
             options: ["regular", "outlined"],
         },
         children: { control: "text" },
+        next: { control: "boolean" },
+        prev: { control: "boolean" },
         title: { control: "text" },
+        onUpvote: { action: "upvoted" },
+        onPrev: { action: "prev" },
+        onNext: { action: "next" },
         id: { control: "text" },
         initialUpvotes: { control: "number" },
         background: { control: "color" },
@@ -24,6 +29,7 @@ export const Regular: Story = {
     args: {
         variant: "regular",
         background: "#f9f9d1",
+        prev: true,
         id: 1,
         initialUpvotes: 18000,
         title: "Diwali",
@@ -38,6 +44,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor nequ
 export const Outline: Story = {
     args: {
         variant: "outlined",
+        next: true,
         background: "#f9f9d1",
         id: 1,
         initialUpvotes: 180,

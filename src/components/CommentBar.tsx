@@ -4,7 +4,7 @@ import { Comment } from "./Comment";
 type CommentProps = {
     id: number;
     content: string;
-    initialUpvotes: number;
+    upvotes: number;
 }
 type CommentBarProps = {
     variant?: 'regular' | 'outlined';
@@ -17,7 +17,7 @@ export const CommentBar: React.FC<CommentBarProps> = ({ onClick, comment, varian
     return (<>
         <article className={`comment-bar ${variant}`}>
             <Comment id={comment.id}
-                content={comment.content} initialUpvotes={comment.initialUpvotes} />
+                content={comment.content} upvotes={comment.upvotes} />
             <button type="button" className="button" aria-label="comment bar button" onClick={onClick}>{ button }</button>
         </article>
     </>);

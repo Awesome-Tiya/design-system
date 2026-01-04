@@ -14,7 +14,9 @@ const meta: Meta<typeof CommentsModal> = {
         commentBox: { control: 'object' },
         numberOfComments: { control: 'number' },
         backButton: { control: 'object' },
-        onClick: { action: "clicked" }
+        onClick: { action: "clicked" },
+        onFlag: { action: "flag modal" },
+        onUpvote: { action: "upvoted" },
     },
 };
 export default meta;
@@ -40,27 +42,27 @@ export const Regular: Story = {
             {
                 id: 1,
                 content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-                initialUpvotes: 18000,
+                upvotes: 18000,
             },
             {
                 id: 2,
                 content: `Lorem2 ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-                initialUpvotes: 18000,
+                upvotes: 18000,
             },
             {
                 id: 3,
                 content: `Lorem3 ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-                initialUpvotes: 18000,
+                upvotes: 18000,
             },
             {
                 id: 4,
                 content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus Lorem4 ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-                initialUpvotes: 18000,
+                upvotes: 18000,
             },
             {
                 id: 5,
                 content: `Lorem5 ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-                initialUpvotes: 18000,
+                upvotes: 18000,
             }
         ],
         commentBox: {
@@ -80,12 +82,12 @@ export const Outlined: Story = {
             {
                 id: 1,
                 content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-                initialUpvotes: 18000,
+                upvotes: 18000,
             },
             {
                 id: 1,
                 content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Cursus in hac habitasse platea dictumst quisque sagittis purus `,
-                initialUpvotes: 18000,
+                upvotes: 18000,
             }
         ],
         commentBox: {

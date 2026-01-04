@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Comment } from "./Comment";
 import { CommentBox } from "./CommentBox";
 
 type CommentProps = {
     id: number;
     content: string;
-    onUpvote?: (id: number) => void;
-    initialUpvotes: number;
+    flagged?: boolean;
+    upvotes: number;
 }
 
 type CommentBoxProps = {
     content: string;
-    onChange: (value: string) => void;
-    onClick?: () => void;
     send: React.ReactNode;
 }
 
@@ -21,10 +19,29 @@ type CommentsModalProps = {
     comments: CommentProps[];
     commentBox: CommentBoxProps;
     numberOfComments: number;
+    onUpvote?: (id: number) => void;
+    onFlag?: (id: number) => void;
+    onChange: (value: string) => void;
+    onCommentClick?: () => void;
     onClick?: () => void;
     backButton: React.ReactNode;
 }
-export const CommentsModal: React.FC<CommentsModalProps> = ({ onClick, comments, commentBox, numberOfComments, variant='regular', backButton }) => {
+export const CommentsModal: React.FC<CommentsModalProps> = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant='regular', backButton }) => {
+    const [commentList, setCommentList] = React.useState<CommentProps[]>(comments);
+    useEffect(() => {
+        setCommentList(comments)
+    }, [comments]);
+    const handleUpvote = (id: number) => {
+        setCommentList(prev =>
+            prev.map(c => 
+                c.id === id ? { ...c, upvotes: c.upvotes+1 } : c
+            )
+        );
+        onUpvote?.(id);
+    }
+    const handleFlag = (id: number) => {
+        onFlag?.(id);
+    }
 
     return (<>
         <div className={`comments-modal ${variant}`}>
@@ -33,12 +50,12 @@ export const CommentsModal: React.FC<CommentsModalProps> = ({ onClick, comments,
                 <h3 className="comments">Comments {numberOfComments}</h3>
             </div>
             <div className="comment-list">
-                {comments.map((comment) => (
+                {commentList.map((comment) => (
                 <Comment key={comment.id} id={comment.id}
-                    content={comment.content} initialUpvotes={comment.initialUpvotes} onUpvote={comment.onUpvote} />))}
+                    content={comment.content} upvotes={comment.upvotes} onFlag={handleFlag} onUpvote={handleUpvote} />))}
             </div>
             <div className="comment-box-container">
-                <CommentBox content={commentBox.content} onChange={commentBox.onChange} onClick={commentBox.onClick} send={commentBox.send} />
+                <CommentBox content={commentBox.content} onChange={onChange} onClick={onCommentClick} send={commentBox.send} />
             </div>
         </div>
     </>);

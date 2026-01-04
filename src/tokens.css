@@ -120,7 +120,7 @@
   width: 100%;
   min-height: 36px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: 2px 4px;
   position: relative;
   box-sizing: border-box;
@@ -133,8 +133,8 @@
   color: #111827;
   word-break: break-word;
   flex: 1;
+  padding: 2.7px;
   margin-left: 9px;
-  margin-top: 1.8px;
 }
 .flag-button {
   background: transparent;
@@ -152,7 +152,7 @@
   width: 279px;
   flex-direction: column;
   max-width: 90%;
-  background-color: #eb9f9f;
+  background-color: #f7a7a7;
   box-shadow: 0 9px 18px rgba(0, 0, 0, 0.27);
   display: flex;
   position: relative;
@@ -208,10 +208,16 @@
   margin-bottom: 6.3px;
   padding: 6px 9px;
   border: none;
-  background-color: #e47a7a;
+  background-color: #e96c6c;
   cursor: pointer;
 }
-
+.next, .prev {
+  background-color: #f5dd41;
+  border: none;
+  padding: 6px 9px;
+  cursor: pointer;
+  border-radius: 50%;
+}
 .upvote {
   display: flex;
   flex-direction: column;
@@ -225,14 +231,13 @@
 .upvote img {
   width: 18px;
   height: 18px;
-  margin-left: 18px;
-  margin-top: 18px;
+  margin: 0;
 }
 .upvote-count {
   font-family: 'Lekton', sans-serif;
   font-size: 10px;
   color: #111827;
-  margin-left: 16.2px;
+  margin: 0;
 }
 .comment-bar {
   display: flex;
