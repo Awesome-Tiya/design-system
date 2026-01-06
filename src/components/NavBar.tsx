@@ -1,7 +1,7 @@
 import React from "react";
 
 type NavBarProps = {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     logoUrl?: string;
     color?: string;
     variant?: 'regular' | 'outlined';
