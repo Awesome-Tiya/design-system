@@ -8,7 +8,7 @@ type ButtonProps = {
 declare const Button: React.FC<ButtonProps>;
 
 type NavBarProps = {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     logoUrl?: string;
     color?: string;
     variant?: 'regular' | 'outlined';
