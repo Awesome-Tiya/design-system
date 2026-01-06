@@ -55,6 +55,7 @@
   height: 20.7px;
   width: auto;
   background-color: var(--color-navbar);
+  padding: var(--spacing-md);
 }
 
 .navbar.outlined {
