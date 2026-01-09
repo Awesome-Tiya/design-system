@@ -22,12 +22,12 @@ type ArticleCardProps = {
     variant?: 'regular' | 'outlined';
     title: string;
     background: string;
-    id: number;
+    id: string;
     prev: boolean;
     next: boolean;
     onPrev?: () => void;
     onNext?: () => void;
-    onUpvote?: (id: number) => void;
+    onUpvote?: (id: string) => void;
     initialUpvotes: number;
 };
 declare const ArticleCard: React.FC<ArticleCardProps>;

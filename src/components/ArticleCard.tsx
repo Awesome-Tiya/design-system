@@ -6,12 +6,12 @@ type ArticleCardProps = {
     variant?: 'regular' | 'outlined';
     title: string;
     background: string;
-    id: number;
+    id: string;
     prev: boolean,
     next: boolean,
     onPrev?: () => void,
     onNext?: () => void,
-    onUpvote?: (id: number) => void;
+    onUpvote?: (id: string) => void;
     initialUpvotes: number;
 }
 export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, variant='regular', next, prev, onPrev, onNext, onUpvote, id, initialUpvotes, background }) => {
