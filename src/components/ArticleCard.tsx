@@ -12,7 +12,7 @@ type ArticleCardProps = {
     onPrev?: () => void,
     onNext?: () => void,
     onUpvote?: () => void;
-    initialUpvotes: number;
+    initialUpvotes: string;
 }
 export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, variant='regular', next, prev, onPrev, onNext, onUpvote, id, initialUpvotes, background }) => {
     const style = {
