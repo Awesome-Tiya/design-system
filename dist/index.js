@@ -28,11 +28,12 @@ var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, o
   const style = {
     "--color-background-article-card": background
   };
+  const upvoteNum = Number.isFinite(upvotes) ? upvotes : 0;
   const formattedUpvotes = new Intl.NumberFormat("en", {
     notation: "compact",
     compactDisplay: "short",
     maximumFractionDigits: 2
-  }).format(upvotes);
+  }).format(upvoteNum);
   return /* @__PURE__ */ jsx3(Fragment3, { children: /* @__PURE__ */ jsxs2("article", { className: `article-card ${variant}`, style, children: [
     /* @__PURE__ */ jsxs2("div", { className: "upvote-line", children: [
       /* @__PURE__ */ jsxs2("button", { type: "button", className: "upvotes", onClick: onUpvote, children: [

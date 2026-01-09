@@ -19,11 +19,12 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, varia
         '--color-background-article-card': background,
     } as React.CSSProperties;
 
+    const upvoteNum = Number.isFinite(upvotes) ? upvotes : 0;
     const formattedUpvotes = new Intl.NumberFormat('en', {
         notation: "compact",
         compactDisplay: "short",
         maximumFractionDigits: 2
-    }).format(upvotes);
+    }).format(upvoteNum);
     return (<>
         <article className={`article-card ${variant}`} style={style}>
             <div className="upvote-line">
