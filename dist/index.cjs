@@ -64,9 +64,6 @@ var NavBar = ({ children, logoUrl, color = "#daf6e7", variant = "regular", siteN
   ] }) });
 };
 
-// src/components/ArticleCard.tsx
-var import_react = require("react");
-
 // src/assets/upvote.png
 var upvote_default = "./upvote-WAND27C3.png";
 
@@ -76,19 +73,14 @@ var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, o
   const style = {
     "--color-background-article-card": background
   };
-  const [upvotes, setUpvotes] = (0, import_react.useState)(initialUpvotes);
-  const handleUpvote = () => {
-    setUpvotes((prev2) => prev2 + 1);
-    if (onUpvote) onUpvote(id);
-  };
   const formattedUpvotes = new Intl.NumberFormat("en", {
     notation: "compact",
     compactDisplay: "short",
     maximumFractionDigits: 2
-  }).format(upvotes);
+  }).format(initialUpvotes);
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("article", { className: `article-card ${variant}`, style, children: [
     /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "upvote-line", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { type: "button", className: "upvotes", onClick: handleUpvote, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { type: "button", className: "upvotes", onClick: () => onUpvote?.(id), children: [
         /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { src: upvote_default, alt: "flower" }),
         /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
       ] }),
@@ -150,11 +142,11 @@ var CommentBox = ({ content, onChange, onClick, send }) => {
 };
 
 // src/components/CommentsModal.tsx
-var import_react2 = __toESM(require("react"), 1);
+var import_react = __toESM(require("react"), 1);
 var import_jsx_runtime7 = require("react/jsx-runtime");
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  const [commentList, setCommentList] = import_react2.default.useState(comments);
-  (0, import_react2.useEffect)(() => {
+  const [commentList, setCommentList] = import_react.default.useState(comments);
+  (0, import_react.useEffect)(() => {
     setCommentList(comments);
   }, [comments]);
   const handleUpvote = (id) => {
@@ -192,11 +184,11 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
 };
 
 // src/components/FeedBackModal.tsx
-var import_react3 = require("react");
+var import_react2 = require("react");
 var import_jsx_runtime8 = require("react/jsx-runtime");
 var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange, onFeedBackChange }) => {
-  const modalRef = (0, import_react3.useRef)(null);
-  (0, import_react3.useEffect)(() => {
+  const modalRef = (0, import_react2.useRef)(null);
+  (0, import_react2.useEffect)(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         if (onClose) onClose();
@@ -217,7 +209,7 @@ var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange,
 };
 
 // src/components/FlagModal.tsx
-var import_react4 = __toESM(require("react"), 1);
+var import_react3 = __toESM(require("react"), 1);
 var import_jsx_runtime9 = require("react/jsx-runtime");
 var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
   FlagReason2[FlagReason2["SPAM"] = 0] = "SPAM";
@@ -231,8 +223,8 @@ var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
 })(FlagReason || {});
 var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   const reasons = reasonOptions ?? Object.values(FlagReason).filter((value) => typeof value === "number");
-  const [selectedReason, setSelectedReason] = import_react4.default.useState(null);
-  (0, import_react4.useEffect)(() => {
+  const [selectedReason, setSelectedReason] = import_react3.default.useState(null);
+  (0, import_react3.useEffect)(() => {
     if (!open) {
       setSelectedReason(null);
     }

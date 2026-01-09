@@ -18,20 +18,16 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, varia
     const style = {
         '--color-background-article-card': background,
     } as React.CSSProperties;
-    const [upvotes, setUpvotes] = useState(initialUpvotes);
-    const handleUpvote = () => {
-        setUpvotes(prev => prev + 1);
-        if (onUpvote) onUpvote(id);
-    }
+
     const formattedUpvotes = new Intl.NumberFormat('en', {
         notation: "compact",
         compactDisplay: "short",
         maximumFractionDigits: 2
-    }).format(upvotes);
+    }).format(initialUpvotes);
     return (<>
         <article className={`article-card ${variant}`} style={style}>
             <div className="upvote-line">
-                <button type="button" className="upvotes" onClick={handleUpvote}>
+                <button type="button" className="upvotes" onClick={() => onUpvote?.(id)}>
                     <img src={upvote} alt="flower"/>
                     <span className="upvote-count">{ formattedUpvotes }</span>
                 </button>

@@ -19,9 +19,6 @@ var NavBar = ({ children, logoUrl, color = "#daf6e7", variant = "regular", siteN
   ] }) });
 };
 
-// src/components/ArticleCard.tsx
-import { useState } from "react";
-
 // src/assets/upvote.png
 var upvote_default = "./upvote-WAND27C3.png";
 
@@ -31,19 +28,14 @@ var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, o
   const style = {
     "--color-background-article-card": background
   };
-  const [upvotes, setUpvotes] = useState(initialUpvotes);
-  const handleUpvote = () => {
-    setUpvotes((prev2) => prev2 + 1);
-    if (onUpvote) onUpvote(id);
-  };
   const formattedUpvotes = new Intl.NumberFormat("en", {
     notation: "compact",
     compactDisplay: "short",
     maximumFractionDigits: 2
-  }).format(upvotes);
+  }).format(initialUpvotes);
   return /* @__PURE__ */ jsx3(Fragment3, { children: /* @__PURE__ */ jsxs2("article", { className: `article-card ${variant}`, style, children: [
     /* @__PURE__ */ jsxs2("div", { className: "upvote-line", children: [
-      /* @__PURE__ */ jsxs2("button", { type: "button", className: "upvotes", onClick: handleUpvote, children: [
+      /* @__PURE__ */ jsxs2("button", { type: "button", className: "upvotes", onClick: () => onUpvote?.(id), children: [
         /* @__PURE__ */ jsx3("img", { src: upvote_default, alt: "flower" }),
         /* @__PURE__ */ jsx3("span", { className: "upvote-count", children: formattedUpvotes })
       ] }),
@@ -105,10 +97,10 @@ var CommentBox = ({ content, onChange, onClick, send }) => {
 };
 
 // src/components/CommentsModal.tsx
-import React2, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Fragment as Fragment7, jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  const [commentList, setCommentList] = React2.useState(comments);
+  const [commentList, setCommentList] = React.useState(comments);
   useEffect(() => {
     setCommentList(comments);
   }, [comments]);
@@ -172,7 +164,7 @@ var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange,
 };
 
 // src/components/FlagModal.tsx
-import React4, { useEffect as useEffect3 } from "react";
+import React3, { useEffect as useEffect3 } from "react";
 import { Fragment as Fragment9, jsx as jsx9, jsxs as jsxs8 } from "react/jsx-runtime";
 var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
   FlagReason2[FlagReason2["SPAM"] = 0] = "SPAM";
@@ -186,7 +178,7 @@ var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
 })(FlagReason || {});
 var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   const reasons = reasonOptions ?? Object.values(FlagReason).filter((value) => typeof value === "number");
-  const [selectedReason, setSelectedReason] = React4.useState(null);
+  const [selectedReason, setSelectedReason] = React3.useState(null);
   useEffect3(() => {
     if (!open) {
       setSelectedReason(null);
