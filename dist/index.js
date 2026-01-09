@@ -24,15 +24,20 @@ var upvote_default = "./upvote-WAND27C3.png";
 
 // src/components/ArticleCard.tsx
 import { Fragment as Fragment3, jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
-var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, onNext, onUpvote, id, initialUpvotes, background }) => {
+var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, onNext, onUpvote, id, upvotes, background }) => {
   const style = {
     "--color-background-article-card": background
   };
+  const formattedUpvotes = new Intl.NumberFormat("en", {
+    notation: "compact",
+    compactDisplay: "short",
+    maximumFractionDigits: 2
+  }).format(upvotes);
   return /* @__PURE__ */ jsx3(Fragment3, { children: /* @__PURE__ */ jsxs2("article", { className: `article-card ${variant}`, style, children: [
     /* @__PURE__ */ jsxs2("div", { className: "upvote-line", children: [
-      /* @__PURE__ */ jsxs2("button", { type: "button", className: "upvotes", onClick: () => onUpvote, children: [
+      /* @__PURE__ */ jsxs2("button", { type: "button", className: "upvotes", onClick: onUpvote, children: [
         /* @__PURE__ */ jsx3("img", { src: upvote_default, alt: "flower" }),
-        /* @__PURE__ */ jsx3("span", { className: "upvote-count", children: initialUpvotes })
+        /* @__PURE__ */ jsx3("span", { className: "upvote-count", children: formattedUpvotes })
       ] }),
       /* @__PURE__ */ jsx3("h3", { className: "title", children: title }),
       prev && /* @__PURE__ */ jsx3("button", { type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
