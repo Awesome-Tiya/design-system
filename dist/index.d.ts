@@ -27,7 +27,7 @@ type ArticleCardProps = {
     next: boolean;
     onPrev?: () => void;
     onNext?: () => void;
-    onUpvote?: (id: string) => void;
+    onUpvote?: () => void;
     initialUpvotes: number;
 };
 declare const ArticleCard: React.FC<ArticleCardProps>;
