@@ -109,12 +109,12 @@ var Comment = ({ id, content, onUpvote, onFlag, flagged = false, upvotes }) => {
     maximumFractionDigits: 2
   }).format(upvotes);
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("article", { className: "comment", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { type: "button", className: "upvote", onClick: () => onUpvote?.(id), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { type: "button", className: "upvote", onClick: onUpvote, children: [
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("img", { src: upvote_flower_default, alt: "flower" }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "comment-content", children: content }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: () => onFlag?.(id), children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("img", { src: flag_default, alt: "flag" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: onFlag, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("img", { src: flag_default, alt: "flag" }) })
   ] }) });
 };
 
@@ -151,17 +151,6 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
   (0, import_react.useEffect)(() => {
     setCommentList(comments);
   }, [comments]);
-  const handleUpvote = (id) => {
-    setCommentList(
-      (prev) => prev.map(
-        (c) => c.id === id ? { ...c, upvotes: c.upvotes + 1 } : c
-      )
-    );
-    onUpvote?.(id);
-  };
-  const handleFlag = (id) => {
-    onFlag?.(id);
-  };
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: `comments-modal ${variant}`, children: [
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "line", children: [
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
@@ -176,8 +165,8 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
         id: comment.id,
         content: comment.content,
         upvotes: comment.upvotes,
-        onFlag: handleFlag,
-        onUpvote: handleUpvote
+        onFlag,
+        onUpvote
       },
       comment.id
     )) }),

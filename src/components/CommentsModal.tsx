@@ -3,7 +3,7 @@ import { Comment } from "./Comment";
 import { CommentBox } from "./CommentBox";
 
 type CommentProps = {
-    id: number;
+    id: string;
     content: string;
     flagged?: boolean;
     upvotes: number;
@@ -19,8 +19,8 @@ type CommentsModalProps = {
     comments: CommentProps[];
     commentBox: CommentBoxProps;
     numberOfComments: number;
-    onUpvote?: (id: number) => void;
-    onFlag?: (id: number) => void;
+    onUpvote?: () => void;
+    onFlag?: () => void;
     onChange: (value: string) => void;
     onCommentClick?: () => void;
     onClick?: () => void;
@@ -31,17 +31,6 @@ export const CommentsModal: React.FC<CommentsModalProps> = ({ onUpvote, onFlag, 
     useEffect(() => {
         setCommentList(comments)
     }, [comments]);
-    const handleUpvote = (id: number) => {
-        setCommentList(prev =>
-            prev.map(c => 
-                c.id === id ? { ...c, upvotes: c.upvotes+1 } : c
-            )
-        );
-        onUpvote?.(id);
-    }
-    const handleFlag = (id: number) => {
-        onFlag?.(id);
-    }
 
     return (<>
         <div className={`comments-modal ${variant}`}>
@@ -52,7 +41,7 @@ export const CommentsModal: React.FC<CommentsModalProps> = ({ onUpvote, onFlag, 
             <div className="comment-list">
                 {commentList.map((comment) => (
                 <Comment key={comment.id} id={comment.id}
-                    content={comment.content} upvotes={comment.upvotes} onFlag={handleFlag} onUpvote={handleUpvote} />))}
+                    content={comment.content} upvotes={comment.upvotes} onFlag={onFlag} onUpvote={onUpvote} />))}
             </div>
             <div className="comment-box-container">
                 <CommentBox content={commentBox.content} onChange={onChange} onClick={onCommentClick} send={commentBox.send} />

@@ -33,17 +33,17 @@ type ArticleCardProps = {
 declare const ArticleCard: React.FC<ArticleCardProps>;
 
 type CommentProps$2 = {
-    id: number;
+    id: string;
     content: string;
-    onUpvote?: (id: number) => void;
-    onFlag?: (id: number) => void;
+    onUpvote?: () => void;
+    onFlag?: () => void;
     flagged?: boolean;
     upvotes: number;
 };
 declare const Comment: React.FC<CommentProps$2>;
 
 type CommentProps$1 = {
-    id: number;
+    id: string;
     content: string;
     upvotes: number;
 };
@@ -64,7 +64,7 @@ type CommentBoxProps$1 = {
 declare const CommentBox: React.FC<CommentBoxProps$1>;
 
 type CommentProps = {
-    id: number;
+    id: string;
     content: string;
     flagged?: boolean;
     upvotes: number;
@@ -78,8 +78,8 @@ type CommentsModalProps = {
     comments: CommentProps[];
     commentBox: CommentBoxProps;
     numberOfComments: number;
-    onUpvote?: (id: number) => void;
-    onFlag?: (id: number) => void;
+    onUpvote?: () => void;
+    onFlag?: () => void;
     onChange: (value: string) => void;
     onCommentClick?: () => void;
     onClick?: () => void;

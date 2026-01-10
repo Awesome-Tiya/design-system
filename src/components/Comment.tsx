@@ -3,10 +3,10 @@ import flag from '../assets/flag.png';
 import upvoteFlower from '../assets/upvote-flower.png';
 
 type CommentProps = {
-    id: number;
+    id: string;
     content: string;
-    onUpvote?: (id: number) => void;
-    onFlag?: (id: number) => void;
+    onUpvote?: () => void;
+    onFlag?: () => void;
     flagged?: boolean;
     upvotes: number;
 }
@@ -20,12 +20,12 @@ export const Comment: React.FC<CommentProps> = ({ id, content, onUpvote, onFlag,
     
     return (<>
         <article className='comment'>
-            <button type="button" className="upvote" onClick={() => onUpvote?.(id)}>
+            <button type="button" className="upvote" onClick={onUpvote}>
                 <img src={upvoteFlower} alt="flower"/>
                 <span className="upvote-count">{ formattedUpvotes }</span>
             </button>
             <p className="comment-content">{ content }</p>
-            <button type="button" className="flag-button" aria-label="flag comment" onClick={() => onFlag?.(id)}><img src={flag} alt="flag"/></button>
+            <button type="button" className="flag-button" aria-label="flag comment" onClick={onFlag}><img src={flag} alt="flag"/></button>
         </article>
     </>);
 }

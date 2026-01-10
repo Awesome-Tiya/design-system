@@ -64,12 +64,12 @@ var Comment = ({ id, content, onUpvote, onFlag, flagged = false, upvotes }) => {
     maximumFractionDigits: 2
   }).format(upvotes);
   return /* @__PURE__ */ jsx4(Fragment4, { children: /* @__PURE__ */ jsxs3("article", { className: "comment", children: [
-    /* @__PURE__ */ jsxs3("button", { type: "button", className: "upvote", onClick: () => onUpvote?.(id), children: [
+    /* @__PURE__ */ jsxs3("button", { type: "button", className: "upvote", onClick: onUpvote, children: [
       /* @__PURE__ */ jsx4("img", { src: upvote_flower_default, alt: "flower" }),
       /* @__PURE__ */ jsx4("span", { className: "upvote-count", children: formattedUpvotes })
     ] }),
     /* @__PURE__ */ jsx4("p", { className: "comment-content", children: content }),
-    /* @__PURE__ */ jsx4("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: () => onFlag?.(id), children: /* @__PURE__ */ jsx4("img", { src: flag_default, alt: "flag" }) })
+    /* @__PURE__ */ jsx4("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: onFlag, children: /* @__PURE__ */ jsx4("img", { src: flag_default, alt: "flag" }) })
   ] }) });
 };
 
@@ -106,17 +106,6 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
   useEffect(() => {
     setCommentList(comments);
   }, [comments]);
-  const handleUpvote = (id) => {
-    setCommentList(
-      (prev) => prev.map(
-        (c) => c.id === id ? { ...c, upvotes: c.upvotes + 1 } : c
-      )
-    );
-    onUpvote?.(id);
-  };
-  const handleFlag = (id) => {
-    onFlag?.(id);
-  };
   return /* @__PURE__ */ jsx7(Fragment7, { children: /* @__PURE__ */ jsxs6("div", { className: `comments-modal ${variant}`, children: [
     /* @__PURE__ */ jsxs6("div", { className: "line", children: [
       /* @__PURE__ */ jsx7("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
@@ -131,8 +120,8 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
         id: comment.id,
         content: comment.content,
         upvotes: comment.upvotes,
-        onFlag: handleFlag,
-        onUpvote: handleUpvote
+        onFlag,
+        onUpvote
       },
       comment.id
     )) }),

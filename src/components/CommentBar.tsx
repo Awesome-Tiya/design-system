@@ -2,7 +2,7 @@ import React from "react";
 import { Comment } from "./Comment";
 
 type CommentProps = {
-    id: number;
+    id: string;
     content: string;
     upvotes: number;
 }
