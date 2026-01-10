@@ -74,11 +74,16 @@ var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, o
     "--color-background-article-card": background
   };
   const upvoteNum = Number.isFinite(upvotes) ? upvotes : 0;
+  const formattedUpvotes = new Intl.NumberFormat("en", {
+    notation: "compact",
+    compactDisplay: "short",
+    maximumFractionDigits: 2
+  }).format(upvoteNum);
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("article", { className: `article-card ${variant}`, style, children: [
     /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "upvote-line", children: [
       /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { type: "button", className: "upvotes", onClick: onUpvote, children: [
         /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { src: upvote_default, alt: "flower" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "upvote-count", children: upvoteNum })
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "title", children: title }),
       prev && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
