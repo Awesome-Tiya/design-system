@@ -50,7 +50,10 @@ type CommentProps$1 = {
 type CommentBarProps = {
     variant?: 'regular' | 'outlined';
     comment: CommentProps$1;
-    onClick?: () => void;
+    onClick: () => void;
+    onUpvote: () => void;
+    onFlag: () => void;
+    flagged: boolean;
     button: React.ReactNode;
 };
 declare const CommentBar: React.FC<CommentBarProps>;

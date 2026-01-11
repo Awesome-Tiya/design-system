@@ -75,13 +75,16 @@ var Comment = ({ id, content, onUpvote, onFlag, flagged = false, upvotes }) => {
 
 // src/components/CommentBar.tsx
 import { Fragment as Fragment5, jsx as jsx5, jsxs as jsxs4 } from "react/jsx-runtime";
-var CommentBar = ({ onClick, comment, variant = "regular", button }) => {
+var CommentBar = ({ onClick, onFlag, onUpvote, flagged, comment, variant = "regular", button }) => {
   return /* @__PURE__ */ jsx5(Fragment5, { children: /* @__PURE__ */ jsxs4("article", { className: `comment-bar ${variant}`, children: [
     /* @__PURE__ */ jsx5(
       Comment,
       {
         id: comment.id,
         content: comment.content,
+        onFlag,
+        onUpvote,
+        flagged,
         upvotes: comment.upvotes
       }
     ),

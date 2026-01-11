@@ -120,13 +120,16 @@ var Comment = ({ id, content, onUpvote, onFlag, flagged = false, upvotes }) => {
 
 // src/components/CommentBar.tsx
 var import_jsx_runtime5 = require("react/jsx-runtime");
-var CommentBar = ({ onClick, comment, variant = "regular", button }) => {
+var CommentBar = ({ onClick, onFlag, onUpvote, flagged, comment, variant = "regular", button }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("article", { className: `comment-bar ${variant}`, children: [
     /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
       Comment,
       {
         id: comment.id,
         content: comment.content,
+        onFlag,
+        onUpvote,
+        flagged,
         upvotes: comment.upvotes
       }
     ),

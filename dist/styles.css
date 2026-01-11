@@ -244,10 +244,11 @@
 .comment-bar {
   display: flex;
   justify-content: space-between;
-  width: 90%;
   min-height: 58px;
   align-items: center;
   padding: 9px;
+  margin-left: 9px;
+  margin-right: 9px;
   background-color: #e2f8fb;
   gap: 9px;
 }
