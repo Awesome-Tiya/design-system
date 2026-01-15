@@ -249,6 +249,7 @@
   padding: 9px;
   margin-left: 9px;
   margin-right: 9px;
+  margin-bottom: 9px;
   background-color: #e2f8fb;
   gap: 9px;
 }
@@ -292,10 +293,11 @@
   margin-top: 1px;
 }
 .comments-modal {
-  width: 503px;
   min-height: 410px;
   background: #e1f8fb;
   display: flex;
+  margin-left: 18px;
+  margin-right: 18px;
   flex-direction: column;
   overflow: hidden;
   padding: 27px;
