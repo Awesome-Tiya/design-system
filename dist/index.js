@@ -102,13 +102,8 @@ var CommentBox = ({ content, onChange, onClick, send }) => {
 };
 
 // src/components/CommentsModal.tsx
-import React, { useEffect } from "react";
 import { Fragment as Fragment7, jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  const [commentList, setCommentList] = React.useState(comments);
-  useEffect(() => {
-    setCommentList(comments);
-  }, [comments]);
   return /* @__PURE__ */ jsx7(Fragment7, { children: /* @__PURE__ */ jsxs6("div", { className: `comments-modal ${variant}`, children: [
     /* @__PURE__ */ jsxs6("div", { className: "line", children: [
       /* @__PURE__ */ jsx7("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
@@ -117,14 +112,14 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
         numberOfComments
       ] })
     ] }),
-    /* @__PURE__ */ jsx7("div", { className: "comment-list", children: commentList.map((comment) => /* @__PURE__ */ jsx7(
+    /* @__PURE__ */ jsx7("div", { className: "comment-list", children: comments.map((comment) => /* @__PURE__ */ jsx7(
       Comment,
       {
         id: comment.id,
         content: comment.content,
         upvotes: comment.upvotes,
-        onFlag,
-        onUpvote
+        onFlag: () => onFlag?.(comment.id),
+        onUpvote: () => onUpvote?.(comment.id)
       },
       comment.id
     )) }),
@@ -133,11 +128,11 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
 };
 
 // src/components/FeedBackModal.tsx
-import { useEffect as useEffect2, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Fragment as Fragment8, jsx as jsx8, jsxs as jsxs7 } from "react/jsx-runtime";
 var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange, onFeedBackChange }) => {
   const modalRef = useRef(null);
-  useEffect2(() => {
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         if (onClose) onClose();
@@ -158,7 +153,7 @@ var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange,
 };
 
 // src/components/FlagModal.tsx
-import React3, { useEffect as useEffect3 } from "react";
+import React2, { useEffect as useEffect2 } from "react";
 import { Fragment as Fragment9, jsx as jsx9, jsxs as jsxs8 } from "react/jsx-runtime";
 var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
   FlagReason2[FlagReason2["SPAM"] = 0] = "SPAM";
@@ -172,8 +167,8 @@ var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
 })(FlagReason || {});
 var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   const reasons = reasonOptions ?? Object.values(FlagReason).filter((value) => typeof value === "number");
-  const [selectedReason, setSelectedReason] = React3.useState(null);
-  useEffect3(() => {
+  const [selectedReason, setSelectedReason] = React2.useState(null);
+  useEffect2(() => {
     if (!open) {
       setSelectedReason(null);
     }

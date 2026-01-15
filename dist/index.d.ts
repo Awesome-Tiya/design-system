@@ -81,8 +81,8 @@ type CommentsModalProps = {
     comments: CommentProps[];
     commentBox: CommentBoxProps;
     numberOfComments: number;
-    onUpvote?: () => void;
-    onFlag?: () => void;
+    onUpvote?: (id: string) => void;
+    onFlag?: (id: string) => void;
     onChange: (value: string) => void;
     onCommentClick?: () => void;
     onClick?: () => void;

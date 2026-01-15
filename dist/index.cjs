@@ -147,13 +147,8 @@ var CommentBox = ({ content, onChange, onClick, send }) => {
 };
 
 // src/components/CommentsModal.tsx
-var import_react = __toESM(require("react"), 1);
 var import_jsx_runtime7 = require("react/jsx-runtime");
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  const [commentList, setCommentList] = import_react.default.useState(comments);
-  (0, import_react.useEffect)(() => {
-    setCommentList(comments);
-  }, [comments]);
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: `comments-modal ${variant}`, children: [
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "line", children: [
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
@@ -162,14 +157,14 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
         numberOfComments
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "comment-list", children: commentList.map((comment) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "comment-list", children: comments.map((comment) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
       Comment,
       {
         id: comment.id,
         content: comment.content,
         upvotes: comment.upvotes,
-        onFlag,
-        onUpvote
+        onFlag: () => onFlag?.(comment.id),
+        onUpvote: () => onUpvote?.(comment.id)
       },
       comment.id
     )) }),
@@ -178,11 +173,11 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
 };
 
 // src/components/FeedBackModal.tsx
-var import_react2 = require("react");
+var import_react = require("react");
 var import_jsx_runtime8 = require("react/jsx-runtime");
 var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange, onFeedBackChange }) => {
-  const modalRef = (0, import_react2.useRef)(null);
-  (0, import_react2.useEffect)(() => {
+  const modalRef = (0, import_react.useRef)(null);
+  (0, import_react.useEffect)(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         if (onClose) onClose();
@@ -203,7 +198,7 @@ var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange,
 };
 
 // src/components/FlagModal.tsx
-var import_react3 = __toESM(require("react"), 1);
+var import_react2 = __toESM(require("react"), 1);
 var import_jsx_runtime9 = require("react/jsx-runtime");
 var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
   FlagReason2[FlagReason2["SPAM"] = 0] = "SPAM";
@@ -217,8 +212,8 @@ var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
 })(FlagReason || {});
 var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   const reasons = reasonOptions ?? Object.values(FlagReason).filter((value) => typeof value === "number");
-  const [selectedReason, setSelectedReason] = import_react3.default.useState(null);
-  (0, import_react3.useEffect)(() => {
+  const [selectedReason, setSelectedReason] = import_react2.default.useState(null);
+  (0, import_react2.useEffect)(() => {
     if (!open) {
       setSelectedReason(null);
     }
