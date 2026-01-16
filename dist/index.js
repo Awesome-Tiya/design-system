@@ -189,6 +189,12 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
     /* @__PURE__ */ jsx9("button", { type: "button", className: "submit-flag", disabled: !selectedReason, onClick: handleSubmit, children: "Flag" })
   ] }) }) });
 };
+
+// src/components/Loader.tsx
+import { Fragment as Fragment10, jsx as jsx10 } from "react/jsx-runtime";
+var Loader = () => {
+  return /* @__PURE__ */ jsx10(Fragment10, { children: /* @__PURE__ */ jsx10("div", { className: "loader", children: /* @__PURE__ */ jsx10("div", { className: "sparkles", children: Array.from({ length: 14 }).map((_, index) => /* @__PURE__ */ jsx10("span", { className: "sparkle" }, index)) }) }) });
+};
 export {
   ArticleCard,
   Button,
@@ -199,5 +205,6 @@ export {
   FeedBackModal,
   FlagModal,
   FlagReason,
+  Loader,
   NavBar
 };

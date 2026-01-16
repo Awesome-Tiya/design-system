@@ -7,3 +7,4 @@ export * from './components/CommentBox';
 export * from './components/CommentsModal';
 export * from './components/FeedBackModal';
 export * from './components/FlagModal';
+export * from './components/Loader';

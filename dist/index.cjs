@@ -39,6 +39,7 @@ __export(index_exports, {
   FeedBackModal: () => FeedBackModal,
   FlagModal: () => FlagModal,
   FlagReason: () => FlagReason,
+  Loader: () => Loader,
   NavBar: () => NavBar
 });
 module.exports = __toCommonJS(index_exports);
@@ -234,6 +235,12 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", className: "submit-flag", disabled: !selectedReason, onClick: handleSubmit, children: "Flag" })
   ] }) }) });
 };
+
+// src/components/Loader.tsx
+var import_jsx_runtime10 = require("react/jsx-runtime");
+var Loader = () => {
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "loader", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "sparkles", children: Array.from({ length: 14 }).map((_, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle" }, index)) }) }) });
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   ArticleCard,
@@ -245,5 +252,6 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   FeedBackModal,
   FlagModal,
   FlagReason,
+  Loader,
   NavBar
 });

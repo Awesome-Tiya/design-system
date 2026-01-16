@@ -1,4 +1,5 @@
 import React from 'react';
+import * as react_jsx_runtime from 'react/jsx-runtime';
 
 type ButtonProps = {
     children: React.ReactNode;
@@ -118,4 +119,6 @@ type FlagModalProps = {
 };
 declare const FlagModal: React.FC<FlagModalProps>;
 
-export { ArticleCard, Button, Comment, CommentBar, CommentBox, CommentsModal, FeedBackModal, FlagModal, FlagReason, NavBar };
+declare const Loader: () => react_jsx_runtime.JSX.Element;
+
+export { ArticleCard, Button, Comment, CommentBar, CommentBox, CommentsModal, FeedBackModal, FlagModal, FlagReason, Loader, NavBar };
