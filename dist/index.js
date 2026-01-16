@@ -104,7 +104,7 @@ var CommentBox = ({ content, onChange, onClick, send }) => {
 // src/components/CommentsModal.tsx
 import { Fragment as Fragment7, jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  return /* @__PURE__ */ jsx7(Fragment7, { children: /* @__PURE__ */ jsxs6("div", { className: `comments-modal ${variant}`, children: [
+  return /* @__PURE__ */ jsx7(Fragment7, { children: /* @__PURE__ */ jsx7("div", { className: "overlay", onClick, children: /* @__PURE__ */ jsxs6("div", { className: `comments-modal ${variant}`, children: [
     /* @__PURE__ */ jsxs6("div", { className: "line", children: [
       /* @__PURE__ */ jsx7("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
       /* @__PURE__ */ jsxs6("h3", { className: "comments", children: [
@@ -124,7 +124,7 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
       comment.id
     )) }),
     /* @__PURE__ */ jsx7("div", { className: "comment-box-container", children: /* @__PURE__ */ jsx7(CommentBox, { content: commentBox.content, onChange, onClick: onCommentClick, send: commentBox.send }) })
-  ] }) });
+  ] }) }) });
 };
 
 // src/components/FeedBackModal.tsx

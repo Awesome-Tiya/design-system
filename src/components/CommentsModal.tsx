@@ -29,18 +29,20 @@ type CommentsModalProps = {
 export const CommentsModal: React.FC<CommentsModalProps> = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant='regular', backButton }) => {
 
     return (<>
-        <div className={`comments-modal ${variant}`}>
-            <div className="line">
-                <button type="button" className="back-button" aria-label="back button" onClick={onClick}>{ backButton }</button>
-                <h3 className="comments">Comments {numberOfComments}</h3>
-            </div>
-            <div className="comment-list">
-                {comments.map((comment) => (
-                <Comment key={comment.id} id={comment.id}
-                    content={comment.content} upvotes={comment.upvotes} onFlag={() => onFlag?.(comment.id)} onUpvote={() => onUpvote?.(comment.id)} />))}
-            </div>
-            <div className="comment-box-container">
-                <CommentBox content={commentBox.content} onChange={onChange} onClick={onCommentClick} send={commentBox.send} />
+        <div className="overlay" onClick={onClick}>
+            <div className={`comments-modal ${variant}`}>
+                <div className="line">
+                    <button type="button" className="back-button" aria-label="back button" onClick={onClick}>{ backButton }</button>
+                    <h3 className="comments">Comments {numberOfComments}</h3>
+                </div>
+                <div className="comment-list">
+                    {comments.map((comment) => (
+                    <Comment key={comment.id} id={comment.id}
+                        content={comment.content} upvotes={comment.upvotes} onFlag={() => onFlag?.(comment.id)} onUpvote={() => onUpvote?.(comment.id)} />))}
+                </div>
+                <div className="comment-box-container">
+                    <CommentBox content={commentBox.content} onChange={onChange} onClick={onCommentClick} send={commentBox.send} />
+                </div>
             </div>
         </div>
     </>);

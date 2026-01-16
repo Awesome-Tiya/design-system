@@ -149,7 +149,7 @@ var CommentBox = ({ content, onChange, onClick, send }) => {
 // src/components/CommentsModal.tsx
 var import_jsx_runtime7 = require("react/jsx-runtime");
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: `comments-modal ${variant}`, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "overlay", onClick, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: `comments-modal ${variant}`, children: [
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "line", children: [
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
       /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("h3", { className: "comments", children: [
@@ -169,7 +169,7 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
       comment.id
     )) }),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "comment-box-container", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CommentBox, { content: commentBox.content, onChange, onClick: onCommentClick, send: commentBox.send }) })
-  ] }) });
+  ] }) }) });
 };
 
 // src/components/FeedBackModal.tsx
