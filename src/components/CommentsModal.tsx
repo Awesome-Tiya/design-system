@@ -29,7 +29,7 @@ type CommentsModalProps = {
 export const CommentsModal: React.FC<CommentsModalProps> = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant='regular', backButton }) => {
 
     return (<>
-        <div className="overlay" onClick={onClick}>
+        <div className="overlay">
             <div className={`comments-modal ${variant}`}>
                 <div className="line">
                     <button type="button" className="back-button" aria-label="back button" onClick={onClick}>{ backButton }</button>
