@@ -191,17 +191,28 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
 };
 
 // src/components/Loader.tsx
+import { useEffect as useEffect3, useState } from "react";
 import { Fragment as Fragment10, jsx as jsx10, jsxs as jsxs9 } from "react/jsx-runtime";
 var Loader = () => {
-  return /* @__PURE__ */ jsx10(Fragment10, { children: /* @__PURE__ */ jsx10("div", { className: "loader", children: /* @__PURE__ */ jsxs9("div", { className: "sparkles", children: [
-    /* @__PURE__ */ jsx10("span", { className: "sparkle small s1" }),
-    /* @__PURE__ */ jsx10("span", { className: "sparkle small s2" }),
-    /* @__PURE__ */ jsx10("span", { className: "sparkle small s3" }),
-    /* @__PURE__ */ jsx10("span", { className: "sparkle small s4" }),
-    /* @__PURE__ */ jsx10("span", { className: "sparkle small s5" }),
-    /* @__PURE__ */ jsx10("span", { className: "sparkle mid one" }),
-    /* @__PURE__ */ jsx10("div", { className: "loading-text", children: "loading..." })
-  ] }) }) });
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  useEffect3(() => {
+    const move = (e) => {
+      setPos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+  return /* @__PURE__ */ jsxs9(Fragment10, { children: [
+    /* @__PURE__ */ jsx10("div", { className: "loader", children: /* @__PURE__ */ jsxs9("div", { className: "sparkles", children: [
+      /* @__PURE__ */ jsx10("span", { className: "sparkle small s1" }),
+      /* @__PURE__ */ jsx10("span", { className: "sparkle small s2" }),
+      /* @__PURE__ */ jsx10("span", { className: "sparkle small s3" }),
+      /* @__PURE__ */ jsx10("span", { className: "sparkle small s4" }),
+      /* @__PURE__ */ jsx10("span", { className: "sparkle small s5" }),
+      /* @__PURE__ */ jsx10("span", { className: "sparkle mid one" })
+    ] }) }),
+    /* @__PURE__ */ jsx10("div", { className: "loading-text", style: { left: pos.x, top: pos.y }, children: "loading..." })
+  ] });
 };
 export {
   ArticleCard,

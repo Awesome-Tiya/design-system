@@ -361,7 +361,7 @@
   flex-shrink: 0;
 }
 .comment-box-container {
-  padding: 9px 0 0;
+  padding: 1.8px 0 0;
   bottom: 0;
   position: sticky;
 }
@@ -438,7 +438,7 @@
   -webkit-backdrop-filter: brightness(1.08);
   backdrop-filter: brightness(1.08);
   z-index: 100;
-  pointer-events: none;
+  pointer-events: all;
 }
 .sparkles {
   position: absolute;
@@ -470,13 +470,15 @@
   transform: translate(-50%, -50%);
 }
 .loading-text {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
+  font-size: 9px;
+  transform: translate(12px, -18px);
   font-family: 'Lekton', sans-serif;
+  color: #7a5c00;
   font-size: 14px;
   letter-spacing: 2px;
-  color: #6b4e00;
+  padding: 3px 6px;
+  background-color: rgba(255, 240, 180, 0.81);
+  z-index: 63;
   opacity: 0.9;
 }
