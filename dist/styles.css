@@ -446,7 +446,7 @@
 }
 .sparkle {
   position: absolute;
-  background-image: url('./assets/sparkle.apng');
+  background-image: url('/sparkle.apng');
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.954;
