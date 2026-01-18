@@ -239,7 +239,15 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
 // src/components/Loader.tsx
 var import_jsx_runtime10 = require("react/jsx-runtime");
 var Loader = () => {
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "loader", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "sparkles", children: Array.from({ length: 14 }).map((_, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle" }, index)) }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "loader", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "sparkles", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s1" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s3" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s4" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s5" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle mid one" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "loading-text", children: "loading..." })
+  ] }) }) });
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

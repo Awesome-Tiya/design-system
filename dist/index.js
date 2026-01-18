@@ -191,9 +191,17 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
 };
 
 // src/components/Loader.tsx
-import { Fragment as Fragment10, jsx as jsx10 } from "react/jsx-runtime";
+import { Fragment as Fragment10, jsx as jsx10, jsxs as jsxs9 } from "react/jsx-runtime";
 var Loader = () => {
-  return /* @__PURE__ */ jsx10(Fragment10, { children: /* @__PURE__ */ jsx10("div", { className: "loader", children: /* @__PURE__ */ jsx10("div", { className: "sparkles", children: Array.from({ length: 14 }).map((_, index) => /* @__PURE__ */ jsx10("span", { className: "sparkle" }, index)) }) }) });
+  return /* @__PURE__ */ jsx10(Fragment10, { children: /* @__PURE__ */ jsx10("div", { className: "loader", children: /* @__PURE__ */ jsxs9("div", { className: "sparkles", children: [
+    /* @__PURE__ */ jsx10("span", { className: "sparkle small s1" }),
+    /* @__PURE__ */ jsx10("span", { className: "sparkle small s2" }),
+    /* @__PURE__ */ jsx10("span", { className: "sparkle small s3" }),
+    /* @__PURE__ */ jsx10("span", { className: "sparkle small s4" }),
+    /* @__PURE__ */ jsx10("span", { className: "sparkle small s5" }),
+    /* @__PURE__ */ jsx10("span", { className: "sparkle mid one" }),
+    /* @__PURE__ */ jsx10("div", { className: "loading-text", children: "loading..." })
+  ] }) }) });
 };
 export {
   ArticleCard,
