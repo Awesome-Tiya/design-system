@@ -362,7 +362,7 @@
 .comment-box-container {
   padding: 9px 0 0;
   bottom: 0;
-  position: sticky;
+  position: relative;
 }
 .upvote-line {
   display: flex;
@@ -470,11 +470,10 @@
 }
 .loading-text {
   position: fixed;
-  font-size: 4.5px;
-  transform: translate(5.4px, -9px);
+  font-size: 9px;
+  transform: translate(12px, -18px);
   font-family: 'Lekton', sans-serif;
   color: #7a5c00;
-  font-size: 14px;
   letter-spacing: 2px;
   padding: 3px 6px;
   background-color: rgba(255, 240, 180, 0.81);
