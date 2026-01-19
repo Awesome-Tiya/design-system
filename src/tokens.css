@@ -362,7 +362,7 @@
 .comment-box-container {
   padding: 9px 0 0;
   bottom: 0;
-  position: relative;
+  margin-bottom: 9px;
 }
 .upvote-line {
   display: flex;
