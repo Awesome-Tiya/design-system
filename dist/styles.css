@@ -317,8 +317,7 @@
   inset: 0;
   display: flex;
   z-index: 50;
-  top: 9%;
-  right: 9%;
+  right: 5.4%;
   justify-content: center;
 }
 .flag-modal-backdrop {
@@ -326,8 +325,7 @@
   inset: 0;
   display: flex;
   z-index: 50;
-  top: 9%;
-  right: 4.5%;
+  right: 1.8%;
   justify-content: center;
 }
 .comments-modal.outlined {
@@ -366,7 +364,7 @@
   background: #99cfd8;
 }
 .comment-list > * {
-  margin-bottom: 9px;
+  margin-bottom: 18px;
 }
 .back-button {
   width: 18px;
