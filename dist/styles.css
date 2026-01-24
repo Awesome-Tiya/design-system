@@ -316,7 +316,6 @@
   position: fixed;
   inset: 0;
   display: flex;
-  background: rgba(0, 0, 0, 0.27);
   z-index: 50;
   top: 9%;
   right: 9%;
@@ -326,10 +325,9 @@
   position: fixed;
   inset: 0;
   display: flex;
-  background: rgba(0, 0, 0, 0.27);
   z-index: 50;
-  top: 18%;
-  right: 9%;
+  top: 9%;
+  right: 4.5%;
   justify-content: center;
 }
 .comments-modal.outlined {
