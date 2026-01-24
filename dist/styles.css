@@ -313,6 +313,26 @@
   align-items: center;
   justify-content: center;
 }
+.feedback-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.27);
+  z-index: 50;
+  top: 20%;
+  right: 18%;
+  justify-content: center;
+}
+.flag-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.27);
+  z-index: 50;
+  top: 30%;
+  right: 30%;
+  justify-content: center;
+}
 .comments-modal.outlined {
   border: 1.8px solid black;
 }

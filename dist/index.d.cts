@@ -14,6 +14,7 @@ type NavBarProps = {
     color?: string;
     variant?: 'regular' | 'outlined';
     siteName?: string;
+    onClick?: () => void;
     feedBackText?: string;
 };
 declare const NavBar: React.FC<NavBarProps>;
