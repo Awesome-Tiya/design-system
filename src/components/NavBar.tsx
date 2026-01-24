@@ -6,10 +6,11 @@ type NavBarProps = {
     color?: string;
     variant?: 'regular' | 'outlined';
     siteName?: string;
+    onClick?: () => void;
     feedBackText?: string;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ children, logoUrl, color='#daf6e7', variant = 'regular', siteName, feedBackText = 'suggestion' }) => {
+export const NavBar: React.FC<NavBarProps> = ({ onClick, children, logoUrl, color='#daf6e7', variant = 'regular', siteName, feedBackText = 'suggestion' }) => {
     const style = {
         '--color-navbar': color,
     } as React.CSSProperties;
@@ -19,7 +20,7 @@ export const NavBar: React.FC<NavBarProps> = ({ children, logoUrl, color='#daf6e
                 <div className="logo">{ logoUrl && <img src={logoUrl} alt="logo"/> }</div>
                 <div className="site-name">{ siteName }</div>
             </div>
-            <div className="feedback">{ feedBackText }</div>
+            <div onClick={onClick} className="feedback">{ feedBackText }</div>
         </nav>
     </>)
 }
