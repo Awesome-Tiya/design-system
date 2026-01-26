@@ -52,7 +52,7 @@ var Button = ({ children, variant = "primary", onClick }) => {
 
 // src/components/NavBar.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var NavBar = ({ onClick, children, logoUrl, color = "#daf6e7", variant = "regular", siteName, feedBackText = "suggestion" }) => {
+var NavBar = ({ onClick, children, sticker, onStickerClick, logoUrl, color = "#daf6e7", variant = "regular", siteName, feedBackText = "suggestion" }) => {
   const style = {
     "--color-navbar": color
   };
@@ -61,6 +61,7 @@ var NavBar = ({ onClick, children, logoUrl, color = "#daf6e7", variant = "regula
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "logo", children: logoUrl && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: logoUrl, alt: "logo" }) }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "site-name", children: siteName })
     ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { onClick: onStickerClick, className: "sticker", children: sticker }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { onClick, className: "feedback", children: feedBackText })
   ] }) });
 };

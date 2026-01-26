@@ -78,7 +78,7 @@
   font-size: 18px;
 }
 
-.feedback {
+.sticker, .feedback {
   font-family: 'Lekton', sans-serif;
   font-size: 15.3px;
   font-style: italic;
@@ -100,8 +100,8 @@
 .article-card .title{
     font-family: 'Meow Script', sans-serif;
     text-align: center;
-    margin-bottom: 2.7%;
-    font-size: 32px;
+    margin-bottom: 1.8%;
+    font-size: 36px;
 }
 
 .article-card.regular {
@@ -131,7 +131,7 @@
 }
 .comment-content {
   font-family: 'Lekton', sans-serif;
-  font-size: 12.6px;
+  font-size: 18px;
   color: #111827;
   word-break: break-word;
   flex: 1;
@@ -273,7 +273,7 @@
   min-height: 50px;
   background-color: #F5FEFF;
   box-sizing: border-box;
-  font-size: 10px;
+  font-size: 18px;
   padding: 6.3px;
   resize: none;
   font-family: 'Lekton', sans-serif;
@@ -317,18 +317,16 @@
   inset: 0;
   display: flex;
   z-index: 50;
-  top: 18%;
-  right: 5.4%;
-  justify-content: center;
+  align-items: right;
+  justify-content: right;
 }
 .flag-modal-backdrop {
   position: fixed;
   inset: 0;
   display: flex;
   z-index: 50;
-  top: 18%;
-  right: 1.8%;
-  justify-content: center;
+  align-items: right;
+  justify-content: right;
 }
 .comments-modal.outlined {
   border: 1.8px solid black;

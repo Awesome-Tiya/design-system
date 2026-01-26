@@ -6,7 +6,7 @@ var Button = ({ children, variant = "primary", onClick }) => {
 
 // src/components/NavBar.tsx
 import { Fragment as Fragment2, jsx as jsx2, jsxs } from "react/jsx-runtime";
-var NavBar = ({ onClick, children, logoUrl, color = "#daf6e7", variant = "regular", siteName, feedBackText = "suggestion" }) => {
+var NavBar = ({ onClick, children, sticker, onStickerClick, logoUrl, color = "#daf6e7", variant = "regular", siteName, feedBackText = "suggestion" }) => {
   const style = {
     "--color-navbar": color
   };
@@ -15,6 +15,7 @@ var NavBar = ({ onClick, children, logoUrl, color = "#daf6e7", variant = "regula
       /* @__PURE__ */ jsx2("div", { className: "logo", children: logoUrl && /* @__PURE__ */ jsx2("img", { src: logoUrl, alt: "logo" }) }),
       /* @__PURE__ */ jsx2("div", { className: "site-name", children: siteName })
     ] }),
+    /* @__PURE__ */ jsx2("div", { onClick: onStickerClick, className: "sticker", children: sticker }),
     /* @__PURE__ */ jsx2("div", { onClick, className: "feedback", children: feedBackText })
   ] }) });
 };

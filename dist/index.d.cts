@@ -14,6 +14,8 @@ type NavBarProps = {
     color?: string;
     variant?: 'regular' | 'outlined';
     siteName?: string;
+    sticker?: string;
+    onStickerClick?: () => void;
     onClick?: () => void;
     feedBackText?: string;
 };
