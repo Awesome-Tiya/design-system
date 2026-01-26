@@ -15,8 +15,10 @@ var NavBar = ({ onClick, children, sticker, onStickerClick, logoUrl, color = "#d
       /* @__PURE__ */ jsx2("div", { className: "logo", children: logoUrl && /* @__PURE__ */ jsx2("img", { src: logoUrl, alt: "logo" }) }),
       /* @__PURE__ */ jsx2("div", { className: "site-name", children: siteName })
     ] }),
-    /* @__PURE__ */ jsx2("div", { onClick: onStickerClick, className: "sticker", children: sticker }),
-    /* @__PURE__ */ jsx2("div", { onClick, className: "feedback", children: feedBackText })
+    /* @__PURE__ */ jsxs("div", { className: "section", children: [
+      /* @__PURE__ */ jsx2("span", { onClick: onStickerClick, className: "sticker", children: sticker }),
+      /* @__PURE__ */ jsx2("span", { onClick, className: "feedback", children: feedBackText })
+    ] })
   ] }) });
 };
 

@@ -78,9 +78,12 @@
   font-size: 18px;
 }
 
-.sticker, .feedback {
+.section {
   font-family: 'Lekton', sans-serif;
+  display: flex;
   font-size: 15.3px;
+  align-items: center;
+  gap: 12px;
   font-style: italic;
   cursor: pointer;
 }
@@ -89,8 +92,8 @@
     background-color: var(--color-background-article-card);
     box-shadow: none;
     border: none;
-    padding: 5.4%;
-    margin-top: 1.8%;
+    padding: 3.6%;
+    margin-top: 1.08%;
     margin-left: 9px;
     margin-right: 9px;
     max-width: 90%;
@@ -100,7 +103,7 @@
 .article-card .title{
     font-family: 'Meow Script', sans-serif;
     text-align: center;
-    margin-bottom: 1.8%;
+    margin-bottom: 1.08%;
     font-size: 36px;
 }
 
@@ -243,10 +246,10 @@
 .comment-bar {
   display: flex;
   justify-content: space-between;
-  position: fixed;
+  position: static;
   min-height: 58px;
   align-items: center;
-  padding: 9px;
+  padding: 5.4px;
   left: 9px;
   right: 9px;
   bottom: 18px;
@@ -274,12 +277,12 @@
   background-color: #F5FEFF;
   box-sizing: border-box;
   font-size: 18px;
-  padding: 6.3px;
+  padding: 4.5px;
   resize: none;
   font-family: 'Lekton', sans-serif;
 }
 .comment-box textarea::placeholder {
-  padding-top: 18px;
+  padding-top: 9px;
 }
 .comment-box .post-comment {
   position: absolute;
@@ -317,16 +320,16 @@
   inset: 0;
   display: flex;
   z-index: 50;
-  align-items: right;
-  justify-content: right;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 .flag-modal-backdrop {
   position: fixed;
   inset: 0;
   display: flex;
   z-index: 50;
-  align-items: right;
-  justify-content: right;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 .comments-modal.outlined {
   border: 1.8px solid black;
@@ -408,10 +411,11 @@
   margin: 0;
 }
 .feedback-modal {
-  width: 72%;
-  height: 72%;
+  min-width: 72%;
+  min-height: 72%;
   background-color: #fadea2;
   display: flex;
+  overflow-y: auto;
   flex-direction: column;
   padding: 18px;
   gap: 9px;
@@ -442,6 +446,7 @@
   font-size: 14px;
   cursor: pointer;
   background: transparent;
+  margin-top: auto;
   border: none;
 }
 .loader {

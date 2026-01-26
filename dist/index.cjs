@@ -61,8 +61,10 @@ var NavBar = ({ onClick, children, sticker, onStickerClick, logoUrl, color = "#d
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "logo", children: logoUrl && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: logoUrl, alt: "logo" }) }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "site-name", children: siteName })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { onClick: onStickerClick, className: "sticker", children: sticker }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { onClick, className: "feedback", children: feedBackText })
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "section", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { onClick: onStickerClick, className: "sticker", children: sticker }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { onClick, className: "feedback", children: feedBackText })
+    ] })
   ] }) });
 };
 

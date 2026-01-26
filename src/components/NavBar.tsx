@@ -22,8 +22,10 @@ export const NavBar: React.FC<NavBarProps> = ({ onClick, children, sticker, onSt
                 <div className="logo">{ logoUrl && <img src={logoUrl} alt="logo"/> }</div>
                 <div className="site-name">{ siteName }</div>
             </div>
-            <div onClick={onStickerClick} className="sticker">{ sticker }</div>
-            <div onClick={onClick} className="feedback">{ feedBackText }</div>
+            <div className="section">
+                <span onClick={onStickerClick} className="sticker">{ sticker }</span>
+                <span onClick={onClick} className="feedback">{ feedBackText }</span>
+            </div>
         </nav>
     </>)
 }
