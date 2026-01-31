@@ -245,15 +245,17 @@
   margin: 0;
 }
 .comment-bar {
-  position: relative;
-  min-height: 58px;
+  display: flex;
+  justify-content: space-between;
+  position: static;
+  min-height: 54px;
   align-items: center;
-  padding: 5.4px;
-  margin-left: 9px;
-  margin-right: 9px;
+  padding: 5.4px 9px;
+  margin-top: 9px;
   margin-bottom: 18px;
+  box-sizing: border-box;
   background-color: #e2f8fb;
-  gap: 5.4px;
+  gap: 9px;
 }
 .button {
   width: 18px;
@@ -269,6 +271,9 @@
 .comment-box {
   min-height: 50px;
   position: relative;
+  box-sizing: border-box;
+  margin-top: 9px;
+  margin-bottom: 18px;
 }
 .comment-box textarea {
   width: 100%;
