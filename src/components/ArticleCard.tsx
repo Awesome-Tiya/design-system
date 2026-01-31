@@ -25,7 +25,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, varia
         compactDisplay: "short",
         maximumFractionDigits: 2
     }).format(upvoteNum);
-    console.log("✅ DESIGN SYSTEM UPDATED ArticleCard running", upvotes);
 
     return (<>
         <article className={`article-card ${variant}`} style={style}>

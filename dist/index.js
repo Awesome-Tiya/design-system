@@ -37,7 +37,6 @@ var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, o
     compactDisplay: "short",
     maximumFractionDigits: 2
   }).format(upvoteNum);
-  console.log("\u2705 DESIGN SYSTEM UPDATED ArticleCard running", upvotes);
   return /* @__PURE__ */ jsx3(Fragment3, { children: /* @__PURE__ */ jsxs2("article", { className: `article-card ${variant}`, style, children: [
     /* @__PURE__ */ jsxs2("div", { className: "upvote-line", children: [
       /* @__PURE__ */ jsxs2("button", { type: "button", className: "upvotes", onClick: onUpvote, children: [
