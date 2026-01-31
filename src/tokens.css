@@ -278,9 +278,7 @@
 }
 .comment-box textarea {
   width: 100%;
-  min-height: 50px;
   background-color: #F5FEFF;
-  box-sizing: border-box;
   font-size: 18px;
   padding: 4.5px;
   resize: none;
@@ -290,10 +288,10 @@
   padding-top: 9px;
 }
 .comment-box .post-comment {
-  position: static;
-  margin-top: 9px;
-  margin-right: 5px;
-  transform: translateY(-50%);
+  position: absolute;
+  bottom: 9px;
+  right: 9px;
+  transform: none;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -386,9 +384,9 @@
   flex-shrink: 0;
 }
 .comment-box-container {
-  padding: 9px 0 0;
-  bottom: 0;
-  margin-bottom: 9px;
+  padding-top: 9px;
+  margin-bottom: 0;
+  margin-top: auto;
 }
 .upvote-line {
   display: flex;
