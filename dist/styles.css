@@ -271,7 +271,7 @@
 }
 .comment-box {
   min-height: 50px;
-  position: static;
+  position: relative;
   box-sizing: border-box;
   margin-top: 9px;
   margin-bottom: 18px;
