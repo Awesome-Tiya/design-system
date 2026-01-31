@@ -252,6 +252,8 @@
   align-items: center;
   padding: 5.4px 9px;
   margin-top: 9px;
+  margin-right: 9px;
+  margin-left: 9px;
   margin-bottom: 18px;
   box-sizing: border-box;
   background-color: #e2f8fb;
@@ -260,7 +262,6 @@
 .button {
   width: 18px;
   height: 18px;
-  margin-right: 27px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -290,13 +291,12 @@
 }
 .comment-box .post-comment {
   position: relative;
-  top: 50%;
-  right: 5px;
+  margin-top: 9px;
+  margin-right: 5px;
   transform: translateY(-50%);
   cursor: pointer;
   background: transparent;
   border: none;
-  margin-top: 1px;
 }
 .comments-modal {
   background: #e1f8fb;
