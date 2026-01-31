@@ -271,7 +271,7 @@
 }
 .comment-box {
   min-height: 50px;
-  position: relative;
+  position: static;
   box-sizing: border-box;
   margin-top: 9px;
   margin-bottom: 18px;
@@ -290,7 +290,7 @@
   padding-top: 9px;
 }
 .comment-box .post-comment {
-  position: relative;
+  position: static;
   margin-top: 9px;
   margin-right: 5px;
   transform: translateY(-50%);
