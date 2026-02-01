@@ -499,6 +499,8 @@
 }
 .sticker-bar {
   display: flex;
+  max-height: 54px;
+  background-color: #efa2d6;
   scrollbar-width: none;
   padding: 3.6px 0;
   gap: 3.6px;
