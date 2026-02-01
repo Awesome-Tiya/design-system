@@ -8,6 +8,17 @@ type ButtonProps = {
 };
 declare const Button: React.FC<ButtonProps>;
 
+type Sticker = {
+    id: string;
+    imageUrl: string;
+    label?: string;
+};
+type StickerBarProps = {
+    stickers: Sticker[];
+    onSelectSticker: (sticker: Sticker) => void;
+};
+declare const StickerBar: React.FC<StickerBarProps>;
+
 type NavBarProps = {
     children?: React.ReactNode;
     logoUrl?: string;
@@ -124,4 +135,4 @@ declare const FlagModal: React.FC<FlagModalProps>;
 
 declare const Loader: () => react_jsx_runtime.JSX.Element;
 
-export { ArticleCard, Button, Comment, CommentBar, CommentBox, CommentsModal, FeedBackModal, FlagModal, FlagReason, Loader, NavBar };
+export { ArticleCard, Button, Comment, CommentBar, CommentBox, CommentsModal, FeedBackModal, FlagModal, FlagReason, Loader, NavBar, StickerBar };

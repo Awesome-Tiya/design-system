@@ -96,7 +96,6 @@
     margin-top: 1.08%;
     margin-left: 9px;
     margin-right: 9px;
-    max-width: 90%;
     transition: all 0.3s ease;
 }
 
@@ -497,6 +496,23 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.sticker-bar {
+  display: flex;
+  scrollbar-width: none;
+  padding: 3.6px 0;
+  gap: 3.6px;
+  overflow-x: auto;
+}
+.sticker-bar::-webkit-scrollbar {
+  display: none;
+}
+.sticker-button {
+  background: transparent;
+  border: none;
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 3.6px;
 }
 .loading-text {
   position: fixed;

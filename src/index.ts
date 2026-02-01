@@ -1,4 +1,5 @@
 export * from './components/Button';
+export * from './components/StickerBar';
 export * from './components/NavBar';
 export * from './components/ArticleCard';
 export * from './components/Comment';

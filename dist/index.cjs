@@ -40,7 +40,8 @@ __export(index_exports, {
   FlagModal: () => FlagModal,
   FlagReason: () => FlagReason,
   Loader: () => Loader,
-  NavBar: () => NavBar
+  NavBar: () => NavBar,
+  StickerBar: () => StickerBar
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -50,20 +51,35 @@ var Button = ({ children, variant = "primary", onClick }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: `custom-button ${variant}`, onClick, children }) });
 };
 
-// src/components/NavBar.tsx
+// src/components/StickerBar.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
+var StickerBar = ({ stickers, onSelectSticker }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_jsx_runtime2.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "sticker-bar", children: stickers.map((sticker) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    "button",
+    {
+      type: "button",
+      className: "sticker-button",
+      onClick: () => onSelectSticker(sticker),
+      children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: sticker.imageUrl, alt: sticker.label || "sticker" })
+    },
+    sticker.id
+  )) }) });
+};
+
+// src/components/NavBar.tsx
+var import_jsx_runtime3 = require("react/jsx-runtime");
 var NavBar = ({ onClick, children, sticker, onStickerClick, logoUrl, color = "#daf6e7", variant = "regular", siteName, feedBackText = "suggestion" }) => {
   const style = {
     "--color-navbar": color
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_jsx_runtime2.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("nav", { className: `navbar ${variant}`, style, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "left-section", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "logo", children: logoUrl && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: logoUrl, alt: "logo" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "site-name", children: siteName })
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("nav", { className: `navbar ${variant}`, style, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "left-section", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "logo", children: logoUrl && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { src: logoUrl, alt: "logo" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "site-name", children: siteName })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "section", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { onClick: onStickerClick, className: "sticker", children: sticker }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { onClick, className: "feedback", children: feedBackText })
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "section", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { onClick: onStickerClick, className: "sticker", children: sticker }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { onClick, className: "feedback", children: feedBackText })
     ] })
   ] }) });
 };
@@ -72,7 +88,7 @@ var NavBar = ({ onClick, children, sticker, onStickerClick, logoUrl, color = "#d
 var upvote_default = "./upvote-WAND27C3.png";
 
 // src/components/ArticleCard.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_jsx_runtime4 = require("react/jsx-runtime");
 var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, onNext, onUpvote, id, upvotes, background }) => {
   const style = {
     "--color-background-article-card": background
@@ -83,17 +99,17 @@ var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, o
     compactDisplay: "short",
     maximumFractionDigits: 2
   }).format(upvoteNum);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("article", { className: `article-card ${variant}`, style, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "upvote-line", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { type: "button", className: "upvotes", onClick: onUpvote, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { src: upvote_default, alt: "flower" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("article", { className: `article-card ${variant}`, style, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "upvote-line", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { type: "button", className: "upvotes", onClick: onUpvote, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("img", { src: upvote_default, alt: "flower" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "title", children: title }),
-      prev && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
-      next && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", className: "next", "aria-label": "next", onClick: onNext, children: "next \u25B6" })
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "title", children: title }),
+      prev && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
+      next && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", className: "next", "aria-label": "next", onClick: onNext, children: "next \u25B6" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "article", children })
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "article", children })
   ] }) });
 };
 
@@ -104,28 +120,28 @@ var flag_default = "./flag-LQ6RO2CQ.png";
 var upvote_flower_default = "./upvote-flower-EVU3NSFT.png";
 
 // src/components/Comment.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime");
+var import_jsx_runtime5 = require("react/jsx-runtime");
 var Comment = ({ id, content, onUpvote, onFlag, flagged = false, upvotes }) => {
   const formattedUpvotes = new Intl.NumberFormat("en", {
     notation: "compact",
     compactDisplay: "short",
     maximumFractionDigits: 2
   }).format(upvotes);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("article", { className: "comment", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { type: "button", className: "upvote", onClick: onUpvote, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("img", { src: upvote_flower_default, alt: "flower" }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("article", { className: "comment", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("button", { type: "button", className: "upvote", onClick: onUpvote, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("img", { src: upvote_flower_default, alt: "flower" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "comment-content", children: content }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: onFlag, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("img", { src: flag_default, alt: "flag" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "comment-content", children: content }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: onFlag, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("img", { src: flag_default, alt: "flag" }) })
   ] }) });
 };
 
 // src/components/CommentBar.tsx
-var import_jsx_runtime5 = require("react/jsx-runtime");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 var CommentBar = ({ onClick, onFlag, onUpvote, flagged, comment, variant = "regular", button }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("article", { className: `comment-bar ${variant}`, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("article", { className: `comment-bar ${variant}`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
       Comment,
       {
         id: comment.id,
@@ -136,31 +152,31 @@ var CommentBar = ({ onClick, onFlag, onUpvote, flagged, comment, variant = "regu
         upvotes: comment.upvotes
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { type: "button", className: "button", "aria-label": "comment bar button", onClick, children: button })
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", className: "button", "aria-label": "comment bar button", onClick, children: button })
   ] }) });
 };
 
 // src/components/CommentBox.tsx
-var import_jsx_runtime6 = require("react/jsx-runtime");
+var import_jsx_runtime7 = require("react/jsx-runtime");
 var CommentBox = ({ content, onChange, onClick, send }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "comment-box", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("textarea", { placeholder: "type here to comment .........", value: content, onChange: (e) => onChange(e.target.value), className: "comment-text" }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", className: "post-comment", "aria-label": "comment", onClick, children: send })
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "comment-box", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("textarea", { placeholder: "type here to comment .........", value: content, onChange: (e) => onChange(e.target.value), className: "comment-text" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "post-comment", "aria-label": "comment", onClick, children: send })
   ] }) });
 };
 
 // src/components/CommentsModal.tsx
-var import_jsx_runtime7 = require("react/jsx-runtime");
+var import_jsx_runtime8 = require("react/jsx-runtime");
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "overlay", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: `comments-modal ${variant}`, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "line", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("h3", { className: "comments", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_jsx_runtime8.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "overlay", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: `comments-modal ${variant}`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "line", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("h3", { className: "comments", children: [
         "Comments ",
         numberOfComments
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "comment-list", children: comments.map((comment) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "comment-list", children: comments.map((comment) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
       Comment,
       {
         id: comment.id,
@@ -171,13 +187,13 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
       },
       comment.id
     )) }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "comment-box-container", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CommentBox, { content: commentBox.content, onChange, onClick: onCommentClick, send: commentBox.send }) })
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "comment-box-container", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CommentBox, { content: commentBox.content, onChange, onClick: onCommentClick, send: commentBox.send }) })
   ] }) }) });
 };
 
 // src/components/FeedBackModal.tsx
 var import_react = require("react");
-var import_jsx_runtime8 = require("react/jsx-runtime");
+var import_jsx_runtime9 = require("react/jsx-runtime");
 var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange, onFeedBackChange }) => {
   const modalRef = (0, import_react.useRef)(null);
   (0, import_react.useEffect)(() => {
@@ -191,18 +207,18 @@ var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange,
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_jsx_runtime8.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "feedback-modal-backdrop", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "feedback-modal", ref: modalRef, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "email", children: "email id" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("input", { id: "email", title: "email", type: "email", value: email, onChange: (e) => onEmailChange(e.target.value), placeholder: "" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { htmlFor: "suggestion", children: "suggestion" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("textarea", { id: "suggestion", title: "suggestion", value: suggestion, onChange: (e) => onFeedBackChange(e.target.value), placeholder: "" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", className: "feedback-button", "aria-label": "feedback", onClick, children: send })
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "feedback-modal-backdrop", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "feedback-modal", ref: modalRef, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { htmlFor: "email", children: "email id" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("input", { id: "email", title: "email", type: "email", value: email, onChange: (e) => onEmailChange(e.target.value), placeholder: "" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { htmlFor: "suggestion", children: "suggestion" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("textarea", { id: "suggestion", title: "suggestion", value: suggestion, onChange: (e) => onFeedBackChange(e.target.value), placeholder: "" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", className: "feedback-button", "aria-label": "feedback", onClick, children: send })
   ] }) }) });
 };
 
 // src/components/FlagModal.tsx
 var import_react2 = __toESM(require("react"), 1);
-var import_jsx_runtime9 = require("react/jsx-runtime");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
   FlagReason2[FlagReason2["SPAM"] = 0] = "SPAM";
   FlagReason2[FlagReason2["DISRESPECT"] = 1] = "DISRESPECT";
@@ -229,18 +245,18 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   const handleSelect = (reason) => {
     setSelectedReason(reason);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flag-modal-backdrop", onClick: onClose, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { role: "dialog", "aria-labelledby": "flag-modal-title", className: "flag-modal", onClick: (e) => e.stopPropagation(), children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "close-button", "aria-label": "close-flag-modal", onClick: onClose, children: "x" }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "flag-modal-title", id: "flag-modal-title", children: "Flagging reason" }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flag-modal-divider" }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("ul", { role: "list", children: reasons.map((reason) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { role: "listitem", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", className: selectedReason === reason ? "selected" : "", onClick: () => handleSelect(reason), children: FlagReason[reason] }) }, reason)) }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", className: "submit-flag", disabled: !selectedReason, onClick: handleSubmit, children: "Flag" })
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flag-modal-backdrop", onClick: onClose, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { role: "dialog", "aria-labelledby": "flag-modal-title", className: "flag-modal", onClick: (e) => e.stopPropagation(), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "close-button", "aria-label": "close-flag-modal", onClick: onClose, children: "x" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "flag-modal-title", id: "flag-modal-title", children: "Flagging reason" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flag-modal-divider" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ul", { role: "list", children: reasons.map((reason) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("li", { role: "listitem", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { type: "button", className: selectedReason === reason ? "selected" : "", onClick: () => handleSelect(reason), children: FlagReason[reason] }) }, reason)) }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { type: "button", className: "submit-flag", disabled: !selectedReason, onClick: handleSubmit, children: "Flag" })
   ] }) }) });
 };
 
 // src/components/Loader.tsx
 var import_react3 = require("react");
-var import_jsx_runtime10 = require("react/jsx-runtime");
+var import_jsx_runtime11 = require("react/jsx-runtime");
 var Loader = () => {
   const [pos, setPos] = (0, import_react3.useState)({ x: 0, y: 0 });
   (0, import_react3.useEffect)(() => {
@@ -250,16 +266,16 @@ var Loader = () => {
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "loader", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "sparkles", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s1" }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s3" }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle small s5" }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sparkle mid one" })
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "loader", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "sparkles", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "sparkle small s1" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "sparkle small s2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "sparkle small s3" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "sparkle small s4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "sparkle small s5" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "sparkle mid one" })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "loading-text", style: { left: pos.x, top: pos.y }, children: "loading..." })
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "loading-text", style: { left: pos.x, top: pos.y }, children: "loading..." })
   ] });
 };
 // Annotate the CommonJS export names for ESM import in node:
@@ -274,5 +290,6 @@ var Loader = () => {
   FlagModal,
   FlagReason,
   Loader,
-  NavBar
+  NavBar,
+  StickerBar
 });
