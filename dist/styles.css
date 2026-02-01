@@ -262,9 +262,10 @@
 .button {
   width: 18px;
   height: 18px;
-  background: transparent;
-  border: none;
   cursor: pointer;
+  background: transparent;
+  margin-right: 3px;
+  border: none;
 }
 .comment-bar.outlined {
   border: 1.8px solid black;
@@ -279,7 +280,7 @@
 .comment-box textarea {
   width: 100%;
   background-color: #F5FEFF;
-  font-size: 18px;
+  font-size: 14.3px;
   padding: 4.5px;
   resize: none;
   font-family: 'Lekton', sans-serif;
@@ -289,9 +290,9 @@
 }
 .comment-box .post-comment {
   position: absolute;
-  bottom: 9px;
+  top: 50%;
   right: 9px;
-  transform: none;
+  transform: translateY(-50%);
   cursor: pointer;
   background: transparent;
   border: none;
