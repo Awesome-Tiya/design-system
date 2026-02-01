@@ -272,13 +272,18 @@
 }
 .comment-box {
   min-height: 50px;
-  position: relative;
+  display: flex;
   box-sizing: border-box;
   margin-top: 9px;
   margin-bottom: 18px;
+  gap: 9px;
+  background-color: #F5FEFF;
+  padding: 4.5px 9px;
+  font-size: 14.3px;
+  align-items: center;
 }
 .comment-box textarea {
-  width: 100%;
+  flex: 1;
   background-color: #F5FEFF;
   font-size: 14.3px;
   padding: 4.5px;
@@ -287,17 +292,14 @@
 }
 .comment-box textarea::placeholder {
   padding-top: 9px;
+  padding-left: 9px;
 }
 .comment-box .post-comment {
-  top: 50%;
-  right: 9px;
-  transform: translateY(-50%);
+  position: static;
+  transform: none;
   cursor: pointer;
   background: transparent;
   border: none;
-}
-.post-comment {
-  position: absolute;
 }
 .comments-modal {
   background: #e1f8fb;
