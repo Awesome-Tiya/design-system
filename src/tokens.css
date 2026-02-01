@@ -388,7 +388,7 @@
   cursor: pointer;
   flex-shrink: 0;
 }
-.comment-box-container {
+.comments-modal .comment-box-container {
   padding-top: 9px;
   margin-bottom: 0;
   margin-top: auto;
