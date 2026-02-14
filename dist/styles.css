@@ -499,9 +499,12 @@
 }
 .sticker-bar {
   display: flex;
-  max-height: 54px;
-  background-color: #efa2d6;
+  max-height: 63px;
+  background-color: #eeb6dd;
   scrollbar-width: none;
+  box-shadow: #ecc0df;
+  margin-left: 9px;
+  margin-right: 9px;
   padding: 3.6px 0;
   gap: 3.6px;
   overflow-x: auto;
@@ -515,6 +518,11 @@
   flex-shrink: 0;
   cursor: pointer;
   padding: 3.6px;
+}
+.sticker-button img {
+  width: auto;
+  height: 45px;
+  object-fit: contain;
 }
 .loading-text {
   position: fixed;
