@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 
 type ButtonProps = {
@@ -39,6 +39,9 @@ type ArticleCardProps = {
     background: string;
     id: string;
     prev: boolean;
+    textRef: RefObject<HTMLDivElement | null>;
+    buttonRef: RefObject<HTMLButtonElement | null>;
+    titleRef: RefObject<HTMLHeadingElement | null>;
     next: boolean;
     onPrev?: () => void;
     onNext?: () => void;

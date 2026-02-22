@@ -89,7 +89,7 @@ var upvote_default = "./upvote-WAND27C3.png";
 
 // src/components/ArticleCard.tsx
 var import_jsx_runtime4 = require("react/jsx-runtime");
-var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, onNext, onUpvote, id, upvotes, background }) => {
+var ArticleCard = ({ children, title, variant = "regular", next, titleRef, buttonRef, textRef, prev, onPrev, onNext, onUpvote, id, upvotes, background }) => {
   const style = {
     "--color-background-article-card": background
   };
@@ -101,15 +101,15 @@ var ArticleCard = ({ children, title, variant = "regular", next, prev, onPrev, o
   }).format(upvoteNum);
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("article", { className: `article-card ${variant}`, style, children: [
     /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "upvote-line", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { type: "button", className: "upvotes", onClick: onUpvote, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { ref: buttonRef, type: "button", className: "upvotes", onClick: onUpvote, children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("img", { src: upvote_default, alt: "flower" }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "upvote-count", children: formattedUpvotes })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "title", children: title }),
-      prev && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
-      next && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", className: "next", "aria-label": "next", onClick: onNext, children: "next \u25B6" })
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { ref: titleRef, className: "title", children: title }),
+      prev && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { ref: buttonRef, type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
+      next && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { ref: buttonRef, type: "button", className: "next", "aria-label": "next", onClick: onNext, children: "next \u25B6" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "article", children })
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { ref: textRef, className: "article", children })
   ] }) });
 };
 

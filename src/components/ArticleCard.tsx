@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import upvote from '../assets/upvote.png';
 
 type ArticleCardProps = {
@@ -8,13 +8,16 @@ type ArticleCardProps = {
     background: string;
     id: string;
     prev: boolean,
+    textRef: RefObject<HTMLDivElement | null>,
+    buttonRef: RefObject<HTMLButtonElement | null>,
+    titleRef: RefObject<HTMLHeadingElement | null>,
     next: boolean,
     onPrev?: () => void,
     onNext?: () => void,
     onUpvote?: () => void;
     upvotes: number;
 }
-export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, variant='regular', next, prev, onPrev, onNext, onUpvote, id, upvotes, background }) => {
+export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, variant='regular', next, titleRef, buttonRef, textRef, prev, onPrev, onNext, onUpvote, id, upvotes, background }) => {
     const style = {
         '--color-background-article-card': background,
     } as React.CSSProperties;
@@ -29,15 +32,15 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, varia
     return (<>
         <article className={`article-card ${variant}`} style={style}>
             <div className="upvote-line">
-                <button type="button" className="upvotes" onClick={onUpvote}>
+                <button ref={buttonRef} type="button" className="upvotes" onClick={onUpvote}>
                     <img src={upvote} alt="flower"/>
                     <span className="upvote-count">{ formattedUpvotes }</span>
                 </button>
-                <h3 className="title">{ title }</h3>
-                {prev && <button type="button" className="prev" aria-label="previous" onClick={onPrev}>◀ prev</button>}
-                {next && <button type="button" className="next" aria-label="next" onClick={onNext}>next ▶</button>}
+                <h3 ref={titleRef} className="title">{ title }</h3>
+                {prev && <button ref={buttonRef} type="button" className="prev" aria-label="previous" onClick={onPrev}>◀ prev</button>}
+                {next && <button ref={buttonRef} type="button" className="next" aria-label="next" onClick={onNext}>next ▶</button>}
             </div>
-            <div className="article">{ children }</div>
+            <div ref={textRef} className="article">{ children }</div>
         </article>
     </>);
 }
