@@ -40,7 +40,13 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, varia
                 {prev && <button ref={buttonRef} type="button" className="prev" aria-label="previous" onClick={onPrev}>◀ prev</button>}
                 {next && <button ref={buttonRef} type="button" className="next" aria-label="next" onClick={onNext}>next ▶</button>}
             </div>
-            <div ref={textRef} className="article">{ children }</div>
+            <div ref={textRef} className="article">
+                {typeof children === "string"
+                    ? children.split("\n").map((para, i) => (
+                        <p key={i}>{para}</p>
+                    ))
+                    : children}
+            </div>
         </article>
     </>);
 }

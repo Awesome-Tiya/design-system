@@ -62,7 +62,7 @@ var ArticleCard = ({ children, title, variant = "regular", next, titleRef, butto
       prev && /* @__PURE__ */ jsx4("button", { ref: buttonRef, type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
       next && /* @__PURE__ */ jsx4("button", { ref: buttonRef, type: "button", className: "next", "aria-label": "next", onClick: onNext, children: "next \u25B6" })
     ] }),
-    /* @__PURE__ */ jsx4("div", { ref: textRef, className: "article", children })
+    /* @__PURE__ */ jsx4("div", { ref: textRef, className: "article", children: typeof children === "string" ? children.split("\n").map((para, i) => /* @__PURE__ */ jsx4("p", { children: para }, i)) : children })
   ] }) });
 };
 
