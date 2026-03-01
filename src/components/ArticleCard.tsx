@@ -36,7 +36,9 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ children, title, varia
                     <img src={upvote} alt="flower"/>
                     <span className="upvote-count">{ formattedUpvotes }</span>
                 </button>
-                <h3 ref={titleRef} className="title">{ title }</h3>
+                <h3 ref={titleRef}>
+                    <span className="title">{title}</span>
+                </h3>
                 {prev && <button ref={buttonRef} type="button" className="prev" aria-label="previous" onClick={onPrev}>◀ prev</button>}
                 {next && <button ref={buttonRef} type="button" className="next" aria-label="next" onClick={onNext}>next ▶</button>}
             </div>

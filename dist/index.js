@@ -58,7 +58,7 @@ var ArticleCard = ({ children, title, variant = "regular", next, titleRef, butto
         /* @__PURE__ */ jsx4("img", { src: upvote_default, alt: "flower" }),
         /* @__PURE__ */ jsx4("span", { className: "upvote-count", children: formattedUpvotes })
       ] }),
-      /* @__PURE__ */ jsx4("h3", { ref: titleRef, className: "title", children: title }),
+      /* @__PURE__ */ jsx4("h3", { ref: titleRef, children: /* @__PURE__ */ jsx4("span", { className: "title", children: title }) }),
       prev && /* @__PURE__ */ jsx4("button", { ref: buttonRef, type: "button", className: "prev", "aria-label": "previous", onClick: onPrev, children: "\u25C0 prev" }),
       next && /* @__PURE__ */ jsx4("button", { ref: buttonRef, type: "button", className: "next", "aria-label": "next", onClick: onNext, children: "next \u25B6" })
     ] }),
