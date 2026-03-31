@@ -154,9 +154,9 @@
   height: 12.6px;
 }
 .flag-modal {
-  width: 279px;
+  width: 90%;
   flex-direction: column;
-  max-width: 90%;
+  max-width: 279px;
   background-color: #f7a7a7;
   display: flex;
   position: relative;
