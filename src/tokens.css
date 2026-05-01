@@ -332,6 +332,7 @@
   justify-content: flex-end;
 }
 .flag-modal-backdrop {
+  position: fixed;
   inset: 0;
   display: flex;
   top: 5.4%;
@@ -533,13 +534,4 @@
   background-color: rgba(255, 240, 180, 0.81);
   z-index: 63;
   opacity: 0.9;
-}
-@media (max-width: 600px) {
-  .flag-modal {
-    width: 72%;
-    max-width: none; 
-    transform: scale(0.75);
-    transform-origin: top right;
-    padding: 4px 6px;
-  }
 }
