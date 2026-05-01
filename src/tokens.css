@@ -157,9 +157,9 @@
   width: 90%;
   flex-direction: column;
   max-width: 279px;
-  transform: scale(0.95);
   background-color: #f7a7a7;
   display: flex;
+  position: relative;
   padding: 6px 9px;
 }
 .close-button {
