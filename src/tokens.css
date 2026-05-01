@@ -338,7 +338,6 @@
   top: 5.4%;
   right: 5.4%;
   z-index: 50;
-  overflow-y: auto;
   align-items: flex-start;
   justify-content: flex-end;
 }
@@ -538,9 +537,31 @@
 }
 @media (max-width: 600px) {
   .flag-modal {
-    width: 72%;
+    width: 70vw;
+    overflow: hidden;
+    font-size: 12px;
     max-width: none;
-    transform: scale(0.72);
-    transform-origin: top right;
+    min-height: 54vh;
+    padding: 4px 6px;
+  }
+
+  .flag-modal ul {
+    overflow-y: auto;
+    flex: 1;
+    max-height: 50vh;
+  }
+
+  .flag-modal li button {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .submit-flag {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .flag-modal-title {
+    font-size: 12px;
   }
 }

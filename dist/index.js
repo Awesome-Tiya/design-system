@@ -191,6 +191,16 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
     }
   }, [open]);
   if (!open) return null;
+  useEffect2(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
   const handleSubmit = () => {
     if (!selectedReason) return;
     onSubmit?.(selectedReason);
