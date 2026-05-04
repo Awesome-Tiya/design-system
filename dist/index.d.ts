@@ -50,6 +50,15 @@ type ArticleCardProps = {
 };
 declare const ArticleCard: React.FC<ArticleCardProps>;
 
+type NotificationProps = {
+    type: "success" | "error" | "info";
+    message: string;
+    time: number;
+    onClose?: () => void;
+    closeable: boolean;
+};
+declare const Notification: React.FC<NotificationProps>;
+
 type CommentProps$2 = {
     id: string;
     content: string;
@@ -138,4 +147,4 @@ declare const FlagModal: React.FC<FlagModalProps>;
 
 declare const Loader: () => react_jsx_runtime.JSX.Element;
 
-export { ArticleCard, Button, Comment, CommentBar, CommentBox, CommentsModal, FeedBackModal, FlagModal, FlagReason, Loader, NavBar, StickerBar };
+export { ArticleCard, Button, Comment, CommentBar, CommentBox, CommentsModal, FeedBackModal, FlagModal, FlagReason, Loader, NavBar, Notification, StickerBar };

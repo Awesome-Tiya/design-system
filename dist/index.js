@@ -66,6 +66,24 @@ var ArticleCard = ({ children, title, variant = "regular", next, titleRef, butto
   ] }) });
 };
 
+// src/components/Notification.tsx
+import { useEffect } from "react";
+import { Fragment as Fragment5, jsx as jsx5, jsxs as jsxs3 } from "react/jsx-runtime";
+var Notification = ({ type, message, time, onClose, closeable }) => {
+  useEffect(() => {
+    if (!closeable) {
+      const timer = setTimeout(() => {
+        onClose?.();
+      }, time);
+      return () => clearTimeout(timer);
+    }
+  }, [closeable, time, onClose]);
+  return /* @__PURE__ */ jsx5(Fragment5, { children: /* @__PURE__ */ jsxs3("div", { className: `notification ${type}`, children: [
+    /* @__PURE__ */ jsx5("p", { id: "notification", children: message }),
+    closeable && /* @__PURE__ */ jsx5("button", { type: "button", onClick: onClose, className: "close-btn", children: "x" })
+  ] }) });
+};
+
 // src/assets/flag.png
 var flag_default = "./flag-LQ6RO2CQ.png";
 
@@ -73,28 +91,28 @@ var flag_default = "./flag-LQ6RO2CQ.png";
 var upvote_flower_default = "./upvote-flower-EVU3NSFT.png";
 
 // src/components/Comment.tsx
-import { Fragment as Fragment5, jsx as jsx5, jsxs as jsxs3 } from "react/jsx-runtime";
+import { Fragment as Fragment6, jsx as jsx6, jsxs as jsxs4 } from "react/jsx-runtime";
 var Comment = ({ id, content, onUpvote, onFlag, flagged = false, upvotes }) => {
   const formattedUpvotes = new Intl.NumberFormat("en", {
     notation: "compact",
     compactDisplay: "short",
     maximumFractionDigits: 2
   }).format(upvotes);
-  return /* @__PURE__ */ jsx5(Fragment5, { children: /* @__PURE__ */ jsxs3("article", { className: "comment", children: [
-    /* @__PURE__ */ jsxs3("button", { type: "button", className: "upvote", onClick: onUpvote, children: [
-      /* @__PURE__ */ jsx5("img", { src: upvote_flower_default, alt: "flower" }),
-      /* @__PURE__ */ jsx5("span", { className: "upvote-count", children: formattedUpvotes })
+  return /* @__PURE__ */ jsx6(Fragment6, { children: /* @__PURE__ */ jsxs4("article", { className: "comment", children: [
+    /* @__PURE__ */ jsxs4("button", { type: "button", className: "upvote", onClick: onUpvote, children: [
+      /* @__PURE__ */ jsx6("img", { src: upvote_flower_default, alt: "flower" }),
+      /* @__PURE__ */ jsx6("span", { className: "upvote-count", children: formattedUpvotes })
     ] }),
-    /* @__PURE__ */ jsx5("p", { className: "comment-content", children: content }),
-    /* @__PURE__ */ jsx5("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: onFlag, children: /* @__PURE__ */ jsx5("img", { src: flag_default, alt: "flag" }) })
+    /* @__PURE__ */ jsx6("p", { className: "comment-content", children: content }),
+    /* @__PURE__ */ jsx6("button", { type: "button", className: "flag-button", "aria-label": "flag comment", onClick: onFlag, children: /* @__PURE__ */ jsx6("img", { src: flag_default, alt: "flag" }) })
   ] }) });
 };
 
 // src/components/CommentBar.tsx
-import { Fragment as Fragment6, jsx as jsx6, jsxs as jsxs4 } from "react/jsx-runtime";
+import { Fragment as Fragment7, jsx as jsx7, jsxs as jsxs5 } from "react/jsx-runtime";
 var CommentBar = ({ onClick, onFlag, onUpvote, flagged, comment, variant = "regular", button }) => {
-  return /* @__PURE__ */ jsx6(Fragment6, { children: /* @__PURE__ */ jsxs4("article", { className: `comment-bar ${variant}`, children: [
-    /* @__PURE__ */ jsx6(
+  return /* @__PURE__ */ jsx7(Fragment7, { children: /* @__PURE__ */ jsxs5("article", { className: `comment-bar ${variant}`, children: [
+    /* @__PURE__ */ jsx7(
       Comment,
       {
         id: comment.id,
@@ -105,31 +123,31 @@ var CommentBar = ({ onClick, onFlag, onUpvote, flagged, comment, variant = "regu
         upvotes: comment.upvotes
       }
     ),
-    /* @__PURE__ */ jsx6("button", { type: "button", className: "button", "aria-label": "comment bar button", onClick, children: button })
+    /* @__PURE__ */ jsx7("button", { type: "button", className: "button", "aria-label": "comment bar button", onClick, children: button })
   ] }) });
 };
 
 // src/components/CommentBox.tsx
-import { Fragment as Fragment7, jsx as jsx7, jsxs as jsxs5 } from "react/jsx-runtime";
+import { Fragment as Fragment8, jsx as jsx8, jsxs as jsxs6 } from "react/jsx-runtime";
 var CommentBox = ({ content, onChange, onClick, send }) => {
-  return /* @__PURE__ */ jsx7(Fragment7, { children: /* @__PURE__ */ jsxs5("div", { className: "comment-box", children: [
-    /* @__PURE__ */ jsx7("textarea", { placeholder: "type here to comment .........", value: content, onChange: (e) => onChange(e.target.value), className: "comment-text" }),
-    /* @__PURE__ */ jsx7("button", { type: "button", className: "post-comment", "aria-label": "comment", onClick, children: send })
+  return /* @__PURE__ */ jsx8(Fragment8, { children: /* @__PURE__ */ jsxs6("div", { className: "comment-box", children: [
+    /* @__PURE__ */ jsx8("textarea", { placeholder: "type here to comment .........", value: content, onChange: (e) => onChange(e.target.value), className: "comment-text" }),
+    /* @__PURE__ */ jsx8("button", { type: "button", className: "post-comment", "aria-label": "comment", onClick, children: send })
   ] }) });
 };
 
 // src/components/CommentsModal.tsx
-import { Fragment as Fragment8, jsx as jsx8, jsxs as jsxs6 } from "react/jsx-runtime";
+import { Fragment as Fragment9, jsx as jsx9, jsxs as jsxs7 } from "react/jsx-runtime";
 var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comments, commentBox, numberOfComments, variant = "regular", backButton }) => {
-  return /* @__PURE__ */ jsx8(Fragment8, { children: /* @__PURE__ */ jsx8("div", { className: "overlay", children: /* @__PURE__ */ jsxs6("div", { className: `comments-modal ${variant}`, children: [
-    /* @__PURE__ */ jsxs6("div", { className: "line", children: [
-      /* @__PURE__ */ jsx8("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
-      /* @__PURE__ */ jsxs6("h3", { className: "comments", children: [
+  return /* @__PURE__ */ jsx9(Fragment9, { children: /* @__PURE__ */ jsx9("div", { className: "overlay", children: /* @__PURE__ */ jsxs7("div", { className: `comments-modal ${variant}`, children: [
+    /* @__PURE__ */ jsxs7("div", { className: "line", children: [
+      /* @__PURE__ */ jsx9("button", { type: "button", className: "back-button", "aria-label": "back button", onClick, children: backButton }),
+      /* @__PURE__ */ jsxs7("h3", { className: "comments", children: [
         "Comments ",
         numberOfComments
       ] })
     ] }),
-    /* @__PURE__ */ jsx8("div", { className: "comment-list", children: comments.map((comment) => /* @__PURE__ */ jsx8(
+    /* @__PURE__ */ jsx9("div", { className: "comment-list", children: comments.map((comment) => /* @__PURE__ */ jsx9(
       Comment,
       {
         id: comment.id,
@@ -140,16 +158,16 @@ var CommentsModal = ({ onUpvote, onFlag, onChange, onCommentClick, onClick, comm
       },
       comment.id
     )) }),
-    /* @__PURE__ */ jsx8("div", { className: "comment-box-container", children: /* @__PURE__ */ jsx8(CommentBox, { content: commentBox.content, onChange, onClick: onCommentClick, send: commentBox.send }) })
+    /* @__PURE__ */ jsx9("div", { className: "comment-box-container", children: /* @__PURE__ */ jsx9(CommentBox, { content: commentBox.content, onChange, onClick: onCommentClick, send: commentBox.send }) })
   ] }) }) });
 };
 
 // src/components/FeedBackModal.tsx
-import { useEffect, useRef } from "react";
-import { Fragment as Fragment9, jsx as jsx9, jsxs as jsxs7 } from "react/jsx-runtime";
+import { useEffect as useEffect2, useRef } from "react";
+import { Fragment as Fragment10, jsx as jsx10, jsxs as jsxs8 } from "react/jsx-runtime";
 var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange, onFeedBackChange }) => {
   const modalRef = useRef(null);
-  useEffect(() => {
+  useEffect2(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         if (onClose) onClose();
@@ -160,18 +178,18 @@ var FeedBackModal = ({ onClick, onClose, email, send, suggestion, onEmailChange,
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
-  return /* @__PURE__ */ jsx9(Fragment9, { children: /* @__PURE__ */ jsx9("div", { className: "feedback-modal-backdrop", children: /* @__PURE__ */ jsxs7("div", { className: "feedback-modal", ref: modalRef, children: [
-    /* @__PURE__ */ jsx9("label", { htmlFor: "email", children: "email id" }),
-    /* @__PURE__ */ jsx9("input", { id: "email", title: "email", type: "email", value: email, onChange: (e) => onEmailChange(e.target.value), placeholder: "" }),
-    /* @__PURE__ */ jsx9("label", { htmlFor: "suggestion", children: "suggestion" }),
-    /* @__PURE__ */ jsx9("textarea", { id: "suggestion", title: "suggestion", value: suggestion, onChange: (e) => onFeedBackChange(e.target.value), placeholder: "" }),
-    /* @__PURE__ */ jsx9("button", { type: "button", className: "feedback-button", "aria-label": "feedback", onClick, children: send })
+  return /* @__PURE__ */ jsx10(Fragment10, { children: /* @__PURE__ */ jsx10("div", { className: "feedback-modal-backdrop", children: /* @__PURE__ */ jsxs8("div", { className: "feedback-modal", ref: modalRef, children: [
+    /* @__PURE__ */ jsx10("label", { htmlFor: "email", children: "email id" }),
+    /* @__PURE__ */ jsx10("input", { id: "email", title: "email", type: "email", value: email, onChange: (e) => onEmailChange(e.target.value), placeholder: "" }),
+    /* @__PURE__ */ jsx10("label", { htmlFor: "suggestion", children: "suggestion" }),
+    /* @__PURE__ */ jsx10("textarea", { id: "suggestion", title: "suggestion", value: suggestion, onChange: (e) => onFeedBackChange(e.target.value), placeholder: "" }),
+    /* @__PURE__ */ jsx10("button", { type: "button", className: "feedback-button", "aria-label": "feedback", onClick, children: send })
   ] }) }) });
 };
 
 // src/components/FlagModal.tsx
-import React2, { useEffect as useEffect2 } from "react";
-import { Fragment as Fragment10, jsx as jsx10, jsxs as jsxs8 } from "react/jsx-runtime";
+import React3, { useEffect as useEffect3 } from "react";
+import { Fragment as Fragment11, jsx as jsx11, jsxs as jsxs9 } from "react/jsx-runtime";
 var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
   FlagReason2[FlagReason2["SPAM"] = 0] = "SPAM";
   FlagReason2[FlagReason2["DISRESPECT"] = 1] = "DISRESPECT";
@@ -184,14 +202,14 @@ var FlagReason = /* @__PURE__ */ ((FlagReason2) => {
 })(FlagReason || {});
 var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   const reasons = reasonOptions ?? Object.values(FlagReason).filter((value) => typeof value === "number");
-  const [selectedReason, setSelectedReason] = React2.useState(null);
-  useEffect2(() => {
+  const [selectedReason, setSelectedReason] = React3.useState(null);
+  useEffect3(() => {
     if (!open) {
       setSelectedReason(null);
     }
   }, [open]);
   if (!open) return null;
-  useEffect2(() => {
+  useEffect3(() => {
     if (open) {
       document.body.style.overflow = "hidden";
     } else {
@@ -208,37 +226,37 @@ var FlagModal = ({ open, reasonOptions, onSubmit, onClose }) => {
   const handleSelect = (reason) => {
     setSelectedReason(reason);
   };
-  return /* @__PURE__ */ jsx10(Fragment10, { children: /* @__PURE__ */ jsx10("div", { className: "flag-modal-backdrop", onClick: onClose, children: /* @__PURE__ */ jsxs8("div", { role: "dialog", "aria-labelledby": "flag-modal-title", className: "flag-modal", onClick: (e) => e.stopPropagation(), children: [
-    /* @__PURE__ */ jsx10("div", { className: "close-button", "aria-label": "close-flag-modal", onClick: onClose, children: "x" }),
-    /* @__PURE__ */ jsx10("h2", { className: "flag-modal-title", id: "flag-modal-title", children: "Flagging reason" }),
-    /* @__PURE__ */ jsx10("div", { className: "flag-modal-divider" }),
-    /* @__PURE__ */ jsx10("ul", { role: "list", children: reasons.map((reason) => /* @__PURE__ */ jsx10("li", { role: "listitem", children: /* @__PURE__ */ jsx10("button", { type: "button", className: selectedReason === reason ? "selected" : "", onClick: () => handleSelect(reason), children: FlagReason[reason] }) }, reason)) }),
-    /* @__PURE__ */ jsx10("button", { type: "button", className: "submit-flag", disabled: !selectedReason, onClick: handleSubmit, children: "Flag" })
+  return /* @__PURE__ */ jsx11(Fragment11, { children: /* @__PURE__ */ jsx11("div", { className: "flag-modal-backdrop", onClick: onClose, children: /* @__PURE__ */ jsxs9("div", { role: "dialog", "aria-labelledby": "flag-modal-title", className: "flag-modal", onClick: (e) => e.stopPropagation(), children: [
+    /* @__PURE__ */ jsx11("div", { className: "close-button", "aria-label": "close-flag-modal", onClick: onClose, children: "x" }),
+    /* @__PURE__ */ jsx11("h2", { className: "flag-modal-title", id: "flag-modal-title", children: "Flagging reason" }),
+    /* @__PURE__ */ jsx11("div", { className: "flag-modal-divider" }),
+    /* @__PURE__ */ jsx11("ul", { role: "list", children: reasons.map((reason) => /* @__PURE__ */ jsx11("li", { role: "listitem", children: /* @__PURE__ */ jsx11("button", { type: "button", className: selectedReason === reason ? "selected" : "", onClick: () => handleSelect(reason), children: FlagReason[reason] }) }, reason)) }),
+    /* @__PURE__ */ jsx11("button", { type: "button", className: "submit-flag", disabled: !selectedReason, onClick: handleSubmit, children: "Flag" })
   ] }) }) });
 };
 
 // src/components/Loader.tsx
-import { useEffect as useEffect3, useState } from "react";
-import { Fragment as Fragment11, jsx as jsx11, jsxs as jsxs9 } from "react/jsx-runtime";
+import { useEffect as useEffect4, useState } from "react";
+import { Fragment as Fragment12, jsx as jsx12, jsxs as jsxs10 } from "react/jsx-runtime";
 var Loader = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  useEffect3(() => {
+  useEffect4(() => {
     const move = (e) => {
       setPos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
   }, []);
-  return /* @__PURE__ */ jsxs9(Fragment11, { children: [
-    /* @__PURE__ */ jsx11("div", { className: "loader", children: /* @__PURE__ */ jsxs9("div", { className: "sparkles", children: [
-      /* @__PURE__ */ jsx11("span", { className: "sparkle small s1" }),
-      /* @__PURE__ */ jsx11("span", { className: "sparkle small s2" }),
-      /* @__PURE__ */ jsx11("span", { className: "sparkle small s3" }),
-      /* @__PURE__ */ jsx11("span", { className: "sparkle small s4" }),
-      /* @__PURE__ */ jsx11("span", { className: "sparkle small s5" }),
-      /* @__PURE__ */ jsx11("span", { className: "sparkle mid one" })
+  return /* @__PURE__ */ jsxs10(Fragment12, { children: [
+    /* @__PURE__ */ jsx12("div", { className: "loader", children: /* @__PURE__ */ jsxs10("div", { className: "sparkles", children: [
+      /* @__PURE__ */ jsx12("span", { className: "sparkle small s1" }),
+      /* @__PURE__ */ jsx12("span", { className: "sparkle small s2" }),
+      /* @__PURE__ */ jsx12("span", { className: "sparkle small s3" }),
+      /* @__PURE__ */ jsx12("span", { className: "sparkle small s4" }),
+      /* @__PURE__ */ jsx12("span", { className: "sparkle small s5" }),
+      /* @__PURE__ */ jsx12("span", { className: "sparkle mid one" })
     ] }) }),
-    /* @__PURE__ */ jsx11("div", { className: "loading-text", style: { left: pos.x, top: pos.y }, children: "loading..." })
+    /* @__PURE__ */ jsx12("div", { className: "loading-text", style: { left: pos.x, top: pos.y }, children: "loading..." })
   ] });
 };
 export {
@@ -253,5 +271,6 @@ export {
   FlagReason,
   Loader,
   NavBar,
+  Notification,
   StickerBar
 };

@@ -2,6 +2,7 @@ export * from './components/Button';
 export * from './components/StickerBar';
 export * from './components/NavBar';
 export * from './components/ArticleCard';
+export * from './components/Notification';
 export * from './components/Comment';
 export * from './components/CommentBar';
 export * from './components/CommentBox';
