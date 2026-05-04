@@ -4,14 +4,14 @@ type NotificationProps = {
     type: "success" | "error" | "info";
     message: string;
     time: number;
-    onClose: () => void;
-    closeable?: boolean;
+    onClose?: () => void;
+    closeable: boolean;
 }
 export const Notification: React.FC<NotificationProps> = ({ type, message, time, onClose, closeable }) => {
     useEffect(() => {
         if (!closeable) {
             const timer = setTimeout(() => {
-                onClose();
+                onClose?.();
             }, time);
 
             return () => clearTimeout(timer);
