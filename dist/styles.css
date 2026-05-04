@@ -436,6 +436,32 @@
   font-size: 14px;
   margin-top: 0;
 }
+.notification.success {
+  background-color: #5de9a1;
+  color: #043b29;
+}
+.notification.error {
+  background-color: #f87171;
+  color: #660202;
+}
+.notification.info {
+  background-color: #9abbe7;
+  color: #0e315e;
+}
+.close-btn {
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.notification {
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Lekton', sans-serif;
+  padding: 9px;
+  display: flex;
+}
 .feedback-modal input, textarea {
   width: 100%;
   background-color: #faf2db;
