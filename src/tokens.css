@@ -437,7 +437,7 @@
   margin-top: 0;
 }
 .notification.success {
-  background-color: #68e9a6;
+  background-color: #a0efc6;
   box-shadow: 0 4px 12px rgba(30, 129, 50, 0.2);
   color: #043b29;
 }
@@ -447,7 +447,7 @@
   color: #660202;
 }
 .notification.info {
-  background-color: #9abbe7;
+  background-color: #a2c5f3;
   box-shadow: 0 4px 12px rgba(35, 45, 129, 0.2);
   color: #0e315e;
 }
@@ -460,15 +460,14 @@
 }
 .notification {
   justify-content: space-between;
-  right: 18px;
   align-items: center;
   font-family: 'Lekton', sans-serif;
   z-index: 9999;
   position: fixed;
   top: 18px;
   min-width: 180px;
-  max-width: 320px;
-  padding: 1.8px;
+  max-width: 81%;
+  padding: 8.1px;
   display: flex;
 }
 .feedback-modal input, textarea {
