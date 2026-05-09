@@ -4,7 +4,7 @@ type NotificationProps = {
     type: "success" | "error" | "info";
     message: string;
     time: number;
-    onClose?: () => void;
+    onClose: () => void;
     closeable: boolean;
 }
 export const Notification: React.FC<NotificationProps> = ({ type, message, time, onClose, closeable }) => {

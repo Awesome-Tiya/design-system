@@ -54,7 +54,7 @@ type NotificationProps = {
     type: "success" | "error" | "info";
     message: string;
     time: number;
-    onClose?: () => void;
+    onClose: () => void;
     closeable: boolean;
 };
 declare const Notification: React.FC<NotificationProps>;

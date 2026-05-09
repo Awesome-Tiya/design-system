@@ -437,15 +437,18 @@
   margin-top: 0;
 }
 .notification.success {
-  background-color: #5de9a1;
+  background-color: #68e9a6;
+  box-shadow: 0 4px 12px rgba(30, 129, 50, 0.2);
   color: #043b29;
 }
 .notification.error {
-  background-color: #f87171;
+  background-color: #f06e6e;
+  box-shadow: 0 4px 12px rgba(114, 30, 30, 0.2);
   color: #660202;
 }
 .notification.info {
   background-color: #9abbe7;
+  box-shadow: 0 4px 12px rgba(35, 45, 129, 0.2);
   color: #0e315e;
 }
 .close-btn {
@@ -457,9 +460,15 @@
 }
 .notification {
   justify-content: space-between;
+  right: 18px;
   align-items: center;
   font-family: 'Lekton', sans-serif;
-  padding: 9px;
+  z-index: 9999;
+  position: fixed;
+  top: 18px;
+  min-width: 180px;
+  max-width: 320px;
+  padding: 1.8px;
   display: flex;
 }
 .feedback-modal input, textarea {
@@ -589,5 +598,13 @@
 
   .flag-modal-title {
     font-size: 12px;
+  }
+
+  .notification {
+    top: 12px;
+    right: 12px;
+    max-width: 240px;
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }
