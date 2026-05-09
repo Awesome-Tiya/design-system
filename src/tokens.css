@@ -460,6 +460,7 @@
 }
 .notification {
   justify-content: space-between;
+  right: 18px;
   align-items: center;
   font-family: 'Lekton', sans-serif;
   z-index: 9999;
