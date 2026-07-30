@@ -559,7 +559,7 @@
   object-fit: contain;
 }
 .sticker-button.selected {
-    background-color: #ffd500;
+    background-color: #ffd50042;
     border-radius: 8px;
 }
 .loading-text {
