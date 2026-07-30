@@ -15,6 +15,7 @@ type Sticker = {
 };
 type StickerBarProps = {
     stickers: Sticker[];
+    selectedStickerLabel?: string;
     onSelectSticker: (sticker: Sticker) => void;
 };
 declare const StickerBar: React.FC<StickerBarProps>;

@@ -7,17 +7,18 @@ type Sticker = {
 }
 type StickerBarProps = {
     stickers: Sticker[];
+    selectedStickerLabel?: string;
     onSelectSticker: (sticker: Sticker) => void;
 }
 
-export const StickerBar: React.FC<StickerBarProps> = ({ stickers, onSelectSticker }) => {
+export const StickerBar: React.FC<StickerBarProps> = ({ stickers, selectedStickerLabel, onSelectSticker }) => {
     return (<>
         <div className="sticker-bar">
             {stickers.map((sticker) => (
                 <button
                     type="button"
                     key={sticker.id}
-                    className="sticker-button"
+                    className={`sticker-button${selectedStickerLabel === sticker.label ? "selected" : ""}`}
                     onClick={() => onSelectSticker(sticker)}
                 >
                     <img src={sticker.imageUrl} alt={sticker.label || "sticker"} />

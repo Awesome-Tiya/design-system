@@ -54,12 +54,12 @@ var Button = ({ children, variant = "primary", onClick }) => {
 
 // src/components/StickerBar.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var StickerBar = ({ stickers, onSelectSticker }) => {
+var StickerBar = ({ stickers, selectedStickerLabel, onSelectSticker }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_jsx_runtime2.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "sticker-bar", children: stickers.map((sticker) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
     "button",
     {
       type: "button",
-      className: "sticker-button",
+      className: `sticker-button${selectedStickerLabel === sticker.label ? "selected" : ""}`,
       onClick: () => onSelectSticker(sticker),
       children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", { src: sticker.imageUrl, alt: sticker.label || "sticker" })
     },

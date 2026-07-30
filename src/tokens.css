@@ -558,6 +558,10 @@
   height: 63px;
   object-fit: contain;
 }
+.sticker-button.selected {
+    border-color: #6366f1; /* or your design token */
+    background-color: rgba(99, 102, 241, 0.08);
+}
 .loading-text {
   position: fixed;
   font-size: 9px;

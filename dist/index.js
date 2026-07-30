@@ -6,12 +6,12 @@ var Button = ({ children, variant = "primary", onClick }) => {
 
 // src/components/StickerBar.tsx
 import { Fragment as Fragment2, jsx as jsx2 } from "react/jsx-runtime";
-var StickerBar = ({ stickers, onSelectSticker }) => {
+var StickerBar = ({ stickers, selectedStickerLabel, onSelectSticker }) => {
   return /* @__PURE__ */ jsx2(Fragment2, { children: /* @__PURE__ */ jsx2("div", { className: "sticker-bar", children: stickers.map((sticker) => /* @__PURE__ */ jsx2(
     "button",
     {
       type: "button",
-      className: "sticker-button",
+      className: `sticker-button${selectedStickerLabel === sticker.label ? "selected" : ""}`,
       onClick: () => onSelectSticker(sticker),
       children: /* @__PURE__ */ jsx2("img", { src: sticker.imageUrl, alt: sticker.label || "sticker" })
     },
