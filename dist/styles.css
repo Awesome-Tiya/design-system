@@ -559,7 +559,8 @@
   object-fit: contain;
 }
 .sticker-button.selected {
-    border-color: #ffd500;
+    background-color: #ffd500;
+    border-radius: 8px;
 }
 .loading-text {
   position: fixed;
