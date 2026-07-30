@@ -11,7 +11,7 @@ var StickerBar = ({ stickers, selectedStickerLabel, onSelectSticker }) => {
     "button",
     {
       type: "button",
-      className: `sticker-button${selectedStickerLabel === sticker.label ? "selected" : ""}`,
+      className: `sticker-button ${selectedStickerLabel === sticker.label ? "selected" : ""}`,
       onClick: () => onSelectSticker(sticker),
       children: /* @__PURE__ */ jsx2("img", { src: sticker.imageUrl, alt: sticker.label || "sticker" })
     },

@@ -18,7 +18,7 @@ export const StickerBar: React.FC<StickerBarProps> = ({ stickers, selectedSticke
                 <button
                     type="button"
                     key={sticker.id}
-                    className={`sticker-button${selectedStickerLabel === sticker.label ? "selected" : ""}`}
+                    className={`sticker-button ${selectedStickerLabel === sticker.label ? "selected" : ""}`}
                     onClick={() => onSelectSticker(sticker)}
                 >
                     <img src={sticker.imageUrl} alt={sticker.label || "sticker"} />
